@@ -7,22 +7,35 @@
     "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
   },
   "dependencies": {
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@types/react-helmet": "^6.1.0",
     "gatsby-image": "^2.3.4",
+    "gatsby-plugin-emotion": "^5.2.0",
+    "gatsby-plugin-graphql-codegen": "^2.7.1",
+    "gatsby-plugin-manifest": "^2.10.0",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-plugin-sharp": "^2.5.6",
+    "gatsby-plugin-sitemap": "^2.10.0",
+    "gatsby-plugin-ts": "^2.7.1",
+    "gatsby-plugin-typescript": "^2.10.0",
     "gatsby-source-contentful": "^2.2.9",
+    "gatsby-source-filesystem": "^2.9.1",
     "gatsby-transformer-remark": "^2.7.3",
     "gatsby-transformer-sharp": "^2.4.6",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
-    "sharp": "^0.25.2"
+    "sharp": "^0.25.2",
+    "typescript": "^4.1.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
     "babel-eslint": "^10.1.0",
     "chalk": "^4.0.0",
     "contentful-import": "^7.7.8",
+    "core-js": "^2.6.5",
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
@@ -31,9 +44,7 @@
     "inquirer": "^7.1.0",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
-    "yargs-parser": "^18.1.3",
-    "@babel/core": "^7.4.5",
-    "core-js": "^2.6.5"
+    "yargs-parser": "^18.1.3"
   },
   "engines": {
     "node": ">=10.13.0"
