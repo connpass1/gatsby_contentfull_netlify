@@ -6998,14 +6998,6 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
-export type BlogQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type BlogQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, allContentfulBlogPost: { edges: Array<{ node: (
-        Pick<ContentfulBlogPost, 'title' | 'slug' | 'publishDate' | 'tags'>
-        & { heroImage?: Maybe<{ fluid?: Maybe<GatsbyContentfulFluid_TracedSvgFragment> }>, description?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }> }
-      ) }> } };
-
 export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
