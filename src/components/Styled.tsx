@@ -68,12 +68,11 @@ ul {
 export const Title = styled.h1`
 color:#000000a5;
 margin: 0 1rem;
-font-size: 1.55em;
+font-size: 2.25em;
 font-weight:bold;
 text-align:left;
 padding:0 1rem;
 border-bottom: 1px solid currentColor;
-
 `
 export const ArticleList=styled.ul`
   margin: 0;
@@ -85,12 +84,30 @@ export const ArticleList=styled.ul`
   padding: 1rem;
   li {margin: 0;
   padding: 0rem;
-  list-style: none;
- 
+  list-style: none; 
    a {
    color:${linkColor};
    text-decoration:none;
    }
 }
 `
- 
+export const MarkDown = styled.div`
+padding: 2rem;
+img{  width:140px;
+float:right}
+table{width:100%}
+`
+export const TagList = styled.ul`
+border-top:1px solid currentColor;
+border-bottom:1px solid currentColor;
+padding:  2rem;
+font-size: 1.25em;
+display: inline-flex;
+li{
+  display: inline-flex;
+  border:1px solid currentColor;
+  padding: 0.5rem;
+  margin :0 3rem;
+}
+}
+`
