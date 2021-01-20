@@ -9,16 +9,17 @@ const RootIndex = () => {
       edges {
         node {
           slug
-          title
+          title         
         }
       }
     }
   }
 `
- ) 
+  ) 
+
   return (
-    <Layout >
-      { <pre>{JSON.stringify(data, null, 4)}</pre>}      
+    <Layout seo={{ title:"index"}}>
+      {/* { <pre>{JSON.stringify(data, null, 4)}</pre>}       */}
       <Helmet title={"siteTitle"} />
       <div className="wrapper">
         <Title>Recent articles</Title>

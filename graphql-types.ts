@@ -3957,12 +3957,12 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  contentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
+  allContentfulBlockMrkTextNode: ContentfulBlockMrkTextNodeConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
   contentfulPage?: Maybe<ContentfulPage>;
   allContentfulPage: ContentfulPageConnection;
-  contentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
-  allContentfulBlockMrkTextNode: ContentfulBlockMrkTextNodeConnection;
   contentfulBlock?: Maybe<ContentfulBlock>;
   allContentfulBlock: ContentfulBlockConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -4172,6 +4172,26 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryContentfulBlockMrkTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  mrk?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+export type QueryAllContentfulBlockMrkTextNodeArgs = {
+  filter?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+  sort?: Maybe<ContentfulBlockMrkTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulAssetArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4225,26 +4245,6 @@ export type QueryContentfulPageArgs = {
 export type QueryAllContentfulPageArgs = {
   filter?: Maybe<ContentfulPageFilterInput>;
   sort?: Maybe<ContentfulPageSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulBlockMrkTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  mrk?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-export type QueryAllContentfulBlockMrkTextNodeArgs = {
-  filter?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
-  sort?: Maybe<ContentfulBlockMrkTextNodeSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -5334,6 +5334,11 @@ export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
 
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_1_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluid_WithWebpFragment> }> }> };
+
 export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -5348,7 +5353,7 @@ export type TooltipSlugQuery = { contentfulPage?: Maybe<(
     Pick<ContentfulPage, 'lang' | 'slug' | 'tags' | 'title' | 'description'>
     & { blocks?: Maybe<Array<Maybe<{ mrk?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }>, image?: Maybe<(
         Pick<ContentfulAsset, 'title'>
-        & { fluid?: Maybe<GatsbyContentfulFluidFragment> }
+        & { fluid?: Maybe<GatsbyContentfulFluid_WithWebpFragment> }
       )> }>>> }
   )> };
 

@@ -6,23 +6,25 @@ import Img from 'gatsby-image'
 import Layout from '../components/Layout'
 import { MarkDown, TagList, Title } from '../components/Styled'
 class PageLayout extends React.Component {
-   render() {
+  render() {
     const page = get(this.props, 'data.contentfulPage')
-   // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const { title, description, lang } = page;
+    // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
-      <Layout>
+      <Layout seo={ {title:title, description:description, lang:lang  }}>
         <Helmet title={ page.title} />
-       {JSON.stringify( page)}
+       {/* {JSON.stringify( page)} */}
         <Title>{page.title}</Title>
-        {page.blocks.map((block: any, key: any) => <div key={key}>           
+        {page.blocks.map((block: any, key: any) => <div key={key}>  
+         <p>{key}</p> 
           <MarkDown dangerouslySetInnerHTML={{
                 __html:block.mrk.childMarkdownRemark.html,
         }}
           />
-                <Img
-      className={"heroImage"}      
+          <div style={{width:"50%"}}>
+      <Img          
       fluid={block.image.fluid}
-        /> 
+        /> </div>
           </div>
           )}
             <TagList>{page.tags.map((tag: string, key: string | number ) => <li key={key}>{tag }</li>)}</TagList>         
@@ -49,8 +51,8 @@ export default PageLayout
       }
       image {
         title
-        fluid {
-          ...GatsbyContentfulFluid
+        fluid (maxWidth: 620){
+          ...GatsbyContentfulFluid_withWebp
         }
       }
     }
