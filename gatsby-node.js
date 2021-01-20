@@ -5,12 +5,12 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   return new Promise((resolve, reject) => {
-    const tooltip = path.resolve('./src/templates/tooltip.tsx')
+    const tooltip = path.resolve('./src/templates/PageLayout.tsx')
     resolve(
       graphql(
         `
           {
-            allContentfulTooltip {
+            allContentfulPage {
               edges {
                 node {
                   title
@@ -26,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        const posts = result.data.allContentfulTooltip.edges
+        const posts = result.data.allContentfulPage.edges
         posts.forEach((item) => {
           console.log(item.node.slug)
           createPage({

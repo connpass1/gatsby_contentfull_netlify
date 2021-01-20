@@ -373,10 +373,6 @@ export type ContentfulAssetFilterInput = {
   resize?: Maybe<ContentfulResizeFilterInput>;
 };
 
-export type ContentfulAssetFilterListInput = {
-  elemMatch?: Maybe<ContentfulAssetFilterInput>;
-};
-
 export type ContentfulAssetGroupConnection = {
   totalCount: Scalars['Int'];
   edges: Array<ContentfulAssetEdge>;
@@ -399,6 +395,1021 @@ export type ContentfulAssetSys = {
 export type ContentfulAssetSysFilterInput = {
   type?: Maybe<StringQueryOperatorInput>;
   revision?: Maybe<IntQueryOperatorInput>;
+};
+
+export type ContentfulBlock = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  title?: Maybe<Scalars['String']>;
+  className?: Maybe<Scalars['String']>;
+  image?: Maybe<ContentfulAsset>;
+  page?: Maybe<Array<Maybe<ContentfulPage>>>;
+  mrk?: Maybe<ContentfulBlockMrkTextNode>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulBlockSys>;
+  node_locale?: Maybe<Scalars['String']>;
+  /** Returns all children nodes filtered by type contentfulBlockMrkTextNode */
+  childrenContentfulBlockMrkTextNode?: Maybe<Array<Maybe<ContentfulBlockMrkTextNode>>>;
+  /**
+   * Returns the first child node of type contentfulBlockMrkTextNode or null if
+   * there are no children of given type on this node
+   */
+  childContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
+};
+
+
+export type ContentfulBlockCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulBlockUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulBlockConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulBlockEdge>;
+  nodes: Array<ContentfulBlock>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulBlockGroupConnection>;
+};
+
+
+export type ContentfulBlockConnectionDistinctArgs = {
+  field: ContentfulBlockFieldsEnum;
+};
+
+
+export type ContentfulBlockConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulBlockFieldsEnum;
+};
+
+export type ContentfulBlockEdge = {
+  next?: Maybe<ContentfulBlock>;
+  node: ContentfulBlock;
+  previous?: Maybe<ContentfulBlock>;
+};
+
+export type ContentfulBlockFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'title'
+  | 'className'
+  | 'image___id'
+  | 'image___parent___id'
+  | 'image___parent___parent___id'
+  | 'image___parent___parent___children'
+  | 'image___parent___children'
+  | 'image___parent___children___id'
+  | 'image___parent___children___children'
+  | 'image___parent___internal___content'
+  | 'image___parent___internal___contentDigest'
+  | 'image___parent___internal___description'
+  | 'image___parent___internal___fieldOwners'
+  | 'image___parent___internal___ignoreType'
+  | 'image___parent___internal___mediaType'
+  | 'image___parent___internal___owner'
+  | 'image___parent___internal___type'
+  | 'image___children'
+  | 'image___children___id'
+  | 'image___children___parent___id'
+  | 'image___children___parent___children'
+  | 'image___children___children'
+  | 'image___children___children___id'
+  | 'image___children___children___children'
+  | 'image___children___internal___content'
+  | 'image___children___internal___contentDigest'
+  | 'image___children___internal___description'
+  | 'image___children___internal___fieldOwners'
+  | 'image___children___internal___ignoreType'
+  | 'image___children___internal___mediaType'
+  | 'image___children___internal___owner'
+  | 'image___children___internal___type'
+  | 'image___internal___content'
+  | 'image___internal___contentDigest'
+  | 'image___internal___description'
+  | 'image___internal___fieldOwners'
+  | 'image___internal___ignoreType'
+  | 'image___internal___mediaType'
+  | 'image___internal___owner'
+  | 'image___internal___type'
+  | 'image___contentful_id'
+  | 'image___spaceId'
+  | 'image___createdAt'
+  | 'image___updatedAt'
+  | 'image___file___url'
+  | 'image___file___details___size'
+  | 'image___file___fileName'
+  | 'image___file___contentType'
+  | 'image___title'
+  | 'image___description'
+  | 'image___node_locale'
+  | 'image___sys___type'
+  | 'image___sys___revision'
+  | 'image___fixed___base64'
+  | 'image___fixed___tracedSVG'
+  | 'image___fixed___aspectRatio'
+  | 'image___fixed___width'
+  | 'image___fixed___height'
+  | 'image___fixed___src'
+  | 'image___fixed___srcSet'
+  | 'image___fixed___srcWebp'
+  | 'image___fixed___srcSetWebp'
+  | 'image___resolutions___base64'
+  | 'image___resolutions___tracedSVG'
+  | 'image___resolutions___aspectRatio'
+  | 'image___resolutions___width'
+  | 'image___resolutions___height'
+  | 'image___resolutions___src'
+  | 'image___resolutions___srcSet'
+  | 'image___resolutions___srcWebp'
+  | 'image___resolutions___srcSetWebp'
+  | 'image___fluid___base64'
+  | 'image___fluid___tracedSVG'
+  | 'image___fluid___aspectRatio'
+  | 'image___fluid___src'
+  | 'image___fluid___srcSet'
+  | 'image___fluid___srcWebp'
+  | 'image___fluid___srcSetWebp'
+  | 'image___fluid___sizes'
+  | 'image___sizes___base64'
+  | 'image___sizes___tracedSVG'
+  | 'image___sizes___aspectRatio'
+  | 'image___sizes___src'
+  | 'image___sizes___srcSet'
+  | 'image___sizes___srcWebp'
+  | 'image___sizes___srcSetWebp'
+  | 'image___sizes___sizes'
+  | 'image___resize___base64'
+  | 'image___resize___tracedSVG'
+  | 'image___resize___src'
+  | 'image___resize___width'
+  | 'image___resize___height'
+  | 'image___resize___aspectRatio'
+  | 'page'
+  | 'page___id'
+  | 'page___parent___id'
+  | 'page___parent___parent___id'
+  | 'page___parent___parent___children'
+  | 'page___parent___children'
+  | 'page___parent___children___id'
+  | 'page___parent___children___children'
+  | 'page___parent___internal___content'
+  | 'page___parent___internal___contentDigest'
+  | 'page___parent___internal___description'
+  | 'page___parent___internal___fieldOwners'
+  | 'page___parent___internal___ignoreType'
+  | 'page___parent___internal___mediaType'
+  | 'page___parent___internal___owner'
+  | 'page___parent___internal___type'
+  | 'page___children'
+  | 'page___children___id'
+  | 'page___children___parent___id'
+  | 'page___children___parent___children'
+  | 'page___children___children'
+  | 'page___children___children___id'
+  | 'page___children___children___children'
+  | 'page___children___internal___content'
+  | 'page___children___internal___contentDigest'
+  | 'page___children___internal___description'
+  | 'page___children___internal___fieldOwners'
+  | 'page___children___internal___ignoreType'
+  | 'page___children___internal___mediaType'
+  | 'page___children___internal___owner'
+  | 'page___children___internal___type'
+  | 'page___internal___content'
+  | 'page___internal___contentDigest'
+  | 'page___internal___description'
+  | 'page___internal___fieldOwners'
+  | 'page___internal___ignoreType'
+  | 'page___internal___mediaType'
+  | 'page___internal___owner'
+  | 'page___internal___type'
+  | 'page___slug'
+  | 'page___title'
+  | 'page___description'
+  | 'page___lang'
+  | 'page___tags'
+  | 'page___blocks'
+  | 'page___blocks___id'
+  | 'page___blocks___parent___id'
+  | 'page___blocks___parent___children'
+  | 'page___blocks___children'
+  | 'page___blocks___children___id'
+  | 'page___blocks___children___children'
+  | 'page___blocks___internal___content'
+  | 'page___blocks___internal___contentDigest'
+  | 'page___blocks___internal___description'
+  | 'page___blocks___internal___fieldOwners'
+  | 'page___blocks___internal___ignoreType'
+  | 'page___blocks___internal___mediaType'
+  | 'page___blocks___internal___owner'
+  | 'page___blocks___internal___type'
+  | 'page___blocks___title'
+  | 'page___blocks___className'
+  | 'page___blocks___image___id'
+  | 'page___blocks___image___children'
+  | 'page___blocks___image___contentful_id'
+  | 'page___blocks___image___spaceId'
+  | 'page___blocks___image___createdAt'
+  | 'page___blocks___image___updatedAt'
+  | 'page___blocks___image___title'
+  | 'page___blocks___image___description'
+  | 'page___blocks___image___node_locale'
+  | 'page___blocks___page'
+  | 'page___blocks___page___id'
+  | 'page___blocks___page___children'
+  | 'page___blocks___page___slug'
+  | 'page___blocks___page___title'
+  | 'page___blocks___page___description'
+  | 'page___blocks___page___lang'
+  | 'page___blocks___page___tags'
+  | 'page___blocks___page___blocks'
+  | 'page___blocks___page___spaceId'
+  | 'page___blocks___page___contentful_id'
+  | 'page___blocks___page___createdAt'
+  | 'page___blocks___page___updatedAt'
+  | 'page___blocks___page___node_locale'
+  | 'page___blocks___mrk___id'
+  | 'page___blocks___mrk___children'
+  | 'page___blocks___mrk___mrk'
+  | 'page___blocks___mrk___childrenMarkdownRemark'
+  | 'page___blocks___spaceId'
+  | 'page___blocks___contentful_id'
+  | 'page___blocks___createdAt'
+  | 'page___blocks___updatedAt'
+  | 'page___blocks___sys___type'
+  | 'page___blocks___sys___revision'
+  | 'page___blocks___node_locale'
+  | 'page___blocks___childrenContentfulBlockMrkTextNode'
+  | 'page___blocks___childrenContentfulBlockMrkTextNode___id'
+  | 'page___blocks___childrenContentfulBlockMrkTextNode___children'
+  | 'page___blocks___childrenContentfulBlockMrkTextNode___mrk'
+  | 'page___blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'page___blocks___childContentfulBlockMrkTextNode___id'
+  | 'page___blocks___childContentfulBlockMrkTextNode___children'
+  | 'page___blocks___childContentfulBlockMrkTextNode___mrk'
+  | 'page___blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'page___spaceId'
+  | 'page___contentful_id'
+  | 'page___createdAt'
+  | 'page___updatedAt'
+  | 'page___sys___type'
+  | 'page___sys___revision'
+  | 'page___node_locale'
+  | 'mrk___id'
+  | 'mrk___parent___id'
+  | 'mrk___parent___parent___id'
+  | 'mrk___parent___parent___children'
+  | 'mrk___parent___children'
+  | 'mrk___parent___children___id'
+  | 'mrk___parent___children___children'
+  | 'mrk___parent___internal___content'
+  | 'mrk___parent___internal___contentDigest'
+  | 'mrk___parent___internal___description'
+  | 'mrk___parent___internal___fieldOwners'
+  | 'mrk___parent___internal___ignoreType'
+  | 'mrk___parent___internal___mediaType'
+  | 'mrk___parent___internal___owner'
+  | 'mrk___parent___internal___type'
+  | 'mrk___children'
+  | 'mrk___children___id'
+  | 'mrk___children___parent___id'
+  | 'mrk___children___parent___children'
+  | 'mrk___children___children'
+  | 'mrk___children___children___id'
+  | 'mrk___children___children___children'
+  | 'mrk___children___internal___content'
+  | 'mrk___children___internal___contentDigest'
+  | 'mrk___children___internal___description'
+  | 'mrk___children___internal___fieldOwners'
+  | 'mrk___children___internal___ignoreType'
+  | 'mrk___children___internal___mediaType'
+  | 'mrk___children___internal___owner'
+  | 'mrk___children___internal___type'
+  | 'mrk___internal___content'
+  | 'mrk___internal___contentDigest'
+  | 'mrk___internal___description'
+  | 'mrk___internal___fieldOwners'
+  | 'mrk___internal___ignoreType'
+  | 'mrk___internal___mediaType'
+  | 'mrk___internal___owner'
+  | 'mrk___internal___type'
+  | 'mrk___mrk'
+  | 'mrk___sys___type'
+  | 'mrk___childrenMarkdownRemark'
+  | 'mrk___childrenMarkdownRemark___id'
+  | 'mrk___childrenMarkdownRemark___frontmatter___title'
+  | 'mrk___childrenMarkdownRemark___excerpt'
+  | 'mrk___childrenMarkdownRemark___rawMarkdownBody'
+  | 'mrk___childrenMarkdownRemark___html'
+  | 'mrk___childrenMarkdownRemark___htmlAst'
+  | 'mrk___childrenMarkdownRemark___excerptAst'
+  | 'mrk___childrenMarkdownRemark___headings'
+  | 'mrk___childrenMarkdownRemark___headings___id'
+  | 'mrk___childrenMarkdownRemark___headings___value'
+  | 'mrk___childrenMarkdownRemark___headings___depth'
+  | 'mrk___childrenMarkdownRemark___timeToRead'
+  | 'mrk___childrenMarkdownRemark___tableOfContents'
+  | 'mrk___childrenMarkdownRemark___wordCount___paragraphs'
+  | 'mrk___childrenMarkdownRemark___wordCount___sentences'
+  | 'mrk___childrenMarkdownRemark___wordCount___words'
+  | 'mrk___childrenMarkdownRemark___parent___id'
+  | 'mrk___childrenMarkdownRemark___parent___children'
+  | 'mrk___childrenMarkdownRemark___children'
+  | 'mrk___childrenMarkdownRemark___children___id'
+  | 'mrk___childrenMarkdownRemark___children___children'
+  | 'mrk___childrenMarkdownRemark___internal___content'
+  | 'mrk___childrenMarkdownRemark___internal___contentDigest'
+  | 'mrk___childrenMarkdownRemark___internal___description'
+  | 'mrk___childrenMarkdownRemark___internal___fieldOwners'
+  | 'mrk___childrenMarkdownRemark___internal___ignoreType'
+  | 'mrk___childrenMarkdownRemark___internal___mediaType'
+  | 'mrk___childrenMarkdownRemark___internal___owner'
+  | 'mrk___childrenMarkdownRemark___internal___type'
+  | 'mrk___childMarkdownRemark___id'
+  | 'mrk___childMarkdownRemark___frontmatter___title'
+  | 'mrk___childMarkdownRemark___excerpt'
+  | 'mrk___childMarkdownRemark___rawMarkdownBody'
+  | 'mrk___childMarkdownRemark___html'
+  | 'mrk___childMarkdownRemark___htmlAst'
+  | 'mrk___childMarkdownRemark___excerptAst'
+  | 'mrk___childMarkdownRemark___headings'
+  | 'mrk___childMarkdownRemark___headings___id'
+  | 'mrk___childMarkdownRemark___headings___value'
+  | 'mrk___childMarkdownRemark___headings___depth'
+  | 'mrk___childMarkdownRemark___timeToRead'
+  | 'mrk___childMarkdownRemark___tableOfContents'
+  | 'mrk___childMarkdownRemark___wordCount___paragraphs'
+  | 'mrk___childMarkdownRemark___wordCount___sentences'
+  | 'mrk___childMarkdownRemark___wordCount___words'
+  | 'mrk___childMarkdownRemark___parent___id'
+  | 'mrk___childMarkdownRemark___parent___children'
+  | 'mrk___childMarkdownRemark___children'
+  | 'mrk___childMarkdownRemark___children___id'
+  | 'mrk___childMarkdownRemark___children___children'
+  | 'mrk___childMarkdownRemark___internal___content'
+  | 'mrk___childMarkdownRemark___internal___contentDigest'
+  | 'mrk___childMarkdownRemark___internal___description'
+  | 'mrk___childMarkdownRemark___internal___fieldOwners'
+  | 'mrk___childMarkdownRemark___internal___ignoreType'
+  | 'mrk___childMarkdownRemark___internal___mediaType'
+  | 'mrk___childMarkdownRemark___internal___owner'
+  | 'mrk___childMarkdownRemark___internal___type'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale'
+  | 'childrenContentfulBlockMrkTextNode'
+  | 'childrenContentfulBlockMrkTextNode___id'
+  | 'childrenContentfulBlockMrkTextNode___parent___id'
+  | 'childrenContentfulBlockMrkTextNode___parent___parent___id'
+  | 'childrenContentfulBlockMrkTextNode___parent___parent___children'
+  | 'childrenContentfulBlockMrkTextNode___parent___children'
+  | 'childrenContentfulBlockMrkTextNode___parent___children___id'
+  | 'childrenContentfulBlockMrkTextNode___parent___children___children'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___content'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___contentDigest'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___description'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___fieldOwners'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___ignoreType'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___mediaType'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___owner'
+  | 'childrenContentfulBlockMrkTextNode___parent___internal___type'
+  | 'childrenContentfulBlockMrkTextNode___children'
+  | 'childrenContentfulBlockMrkTextNode___children___id'
+  | 'childrenContentfulBlockMrkTextNode___children___parent___id'
+  | 'childrenContentfulBlockMrkTextNode___children___parent___children'
+  | 'childrenContentfulBlockMrkTextNode___children___children'
+  | 'childrenContentfulBlockMrkTextNode___children___children___id'
+  | 'childrenContentfulBlockMrkTextNode___children___children___children'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___content'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___contentDigest'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___description'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___fieldOwners'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___ignoreType'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___mediaType'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___owner'
+  | 'childrenContentfulBlockMrkTextNode___children___internal___type'
+  | 'childrenContentfulBlockMrkTextNode___internal___content'
+  | 'childrenContentfulBlockMrkTextNode___internal___contentDigest'
+  | 'childrenContentfulBlockMrkTextNode___internal___description'
+  | 'childrenContentfulBlockMrkTextNode___internal___fieldOwners'
+  | 'childrenContentfulBlockMrkTextNode___internal___ignoreType'
+  | 'childrenContentfulBlockMrkTextNode___internal___mediaType'
+  | 'childrenContentfulBlockMrkTextNode___internal___owner'
+  | 'childrenContentfulBlockMrkTextNode___internal___type'
+  | 'childrenContentfulBlockMrkTextNode___mrk'
+  | 'childrenContentfulBlockMrkTextNode___sys___type'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___id'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___frontmatter___title'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___excerpt'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___rawMarkdownBody'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___html'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___htmlAst'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___excerptAst'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___headings'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___id'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___value'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___depth'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___timeToRead'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___tableOfContents'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___paragraphs'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___sentences'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___words'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___parent___id'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___parent___children'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___children'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___children___id'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___children___children'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___content'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___contentDigest'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___description'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___fieldOwners'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___ignoreType'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___mediaType'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___owner'
+  | 'childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___type'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___id'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___frontmatter___title'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___excerpt'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___rawMarkdownBody'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___html'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___htmlAst'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___excerptAst'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___headings'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___headings___id'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___headings___value'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___headings___depth'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___timeToRead'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___tableOfContents'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___paragraphs'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___sentences'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___words'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___parent___id'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___parent___children'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___children'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___children___id'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___children___children'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___content'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___contentDigest'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___description'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___fieldOwners'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___ignoreType'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___mediaType'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___owner'
+  | 'childrenContentfulBlockMrkTextNode___childMarkdownRemark___internal___type'
+  | 'childContentfulBlockMrkTextNode___id'
+  | 'childContentfulBlockMrkTextNode___parent___id'
+  | 'childContentfulBlockMrkTextNode___parent___parent___id'
+  | 'childContentfulBlockMrkTextNode___parent___parent___children'
+  | 'childContentfulBlockMrkTextNode___parent___children'
+  | 'childContentfulBlockMrkTextNode___parent___children___id'
+  | 'childContentfulBlockMrkTextNode___parent___children___children'
+  | 'childContentfulBlockMrkTextNode___parent___internal___content'
+  | 'childContentfulBlockMrkTextNode___parent___internal___contentDigest'
+  | 'childContentfulBlockMrkTextNode___parent___internal___description'
+  | 'childContentfulBlockMrkTextNode___parent___internal___fieldOwners'
+  | 'childContentfulBlockMrkTextNode___parent___internal___ignoreType'
+  | 'childContentfulBlockMrkTextNode___parent___internal___mediaType'
+  | 'childContentfulBlockMrkTextNode___parent___internal___owner'
+  | 'childContentfulBlockMrkTextNode___parent___internal___type'
+  | 'childContentfulBlockMrkTextNode___children'
+  | 'childContentfulBlockMrkTextNode___children___id'
+  | 'childContentfulBlockMrkTextNode___children___parent___id'
+  | 'childContentfulBlockMrkTextNode___children___parent___children'
+  | 'childContentfulBlockMrkTextNode___children___children'
+  | 'childContentfulBlockMrkTextNode___children___children___id'
+  | 'childContentfulBlockMrkTextNode___children___children___children'
+  | 'childContentfulBlockMrkTextNode___children___internal___content'
+  | 'childContentfulBlockMrkTextNode___children___internal___contentDigest'
+  | 'childContentfulBlockMrkTextNode___children___internal___description'
+  | 'childContentfulBlockMrkTextNode___children___internal___fieldOwners'
+  | 'childContentfulBlockMrkTextNode___children___internal___ignoreType'
+  | 'childContentfulBlockMrkTextNode___children___internal___mediaType'
+  | 'childContentfulBlockMrkTextNode___children___internal___owner'
+  | 'childContentfulBlockMrkTextNode___children___internal___type'
+  | 'childContentfulBlockMrkTextNode___internal___content'
+  | 'childContentfulBlockMrkTextNode___internal___contentDigest'
+  | 'childContentfulBlockMrkTextNode___internal___description'
+  | 'childContentfulBlockMrkTextNode___internal___fieldOwners'
+  | 'childContentfulBlockMrkTextNode___internal___ignoreType'
+  | 'childContentfulBlockMrkTextNode___internal___mediaType'
+  | 'childContentfulBlockMrkTextNode___internal___owner'
+  | 'childContentfulBlockMrkTextNode___internal___type'
+  | 'childContentfulBlockMrkTextNode___mrk'
+  | 'childContentfulBlockMrkTextNode___sys___type'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___id'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___frontmatter___title'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___excerpt'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___rawMarkdownBody'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___html'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___htmlAst'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___excerptAst'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___headings'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___id'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___value'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___headings___depth'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___timeToRead'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___tableOfContents'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___paragraphs'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___sentences'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___wordCount___words'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___parent___id'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___parent___children'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___children'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___children___id'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___children___children'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___content'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___contentDigest'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___description'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___fieldOwners'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___ignoreType'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___mediaType'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___owner'
+  | 'childContentfulBlockMrkTextNode___childrenMarkdownRemark___internal___type'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___id'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___frontmatter___title'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___excerpt'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___rawMarkdownBody'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___html'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___htmlAst'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___excerptAst'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___headings'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___headings___id'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___headings___value'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___headings___depth'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___timeToRead'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___tableOfContents'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___paragraphs'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___sentences'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___wordCount___words'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___parent___id'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___parent___children'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___children'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___children___id'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___children___children'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___content'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___contentDigest'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___description'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___fieldOwners'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___ignoreType'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___mediaType'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___owner'
+  | 'childContentfulBlockMrkTextNode___childMarkdownRemark___internal___type';
+
+export type ContentfulBlockFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  className?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulAssetFilterInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
+  mrk?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  childrenContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterListInput>;
+  childContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+};
+
+export type ContentfulBlockFilterListInput = {
+  elemMatch?: Maybe<ContentfulBlockFilterInput>;
+};
+
+export type ContentfulBlockGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulBlockEdge>;
+  nodes: Array<ContentfulBlock>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulBlockMrkTextNode = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  mrk?: Maybe<Scalars['String']>;
+  sys?: Maybe<ContentfulBlockMrkTextNodeSys>;
+  /** Returns all children nodes filtered by type MarkdownRemark */
+  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
+  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
+  childMarkdownRemark?: Maybe<MarkdownRemark>;
+};
+
+export type ContentfulBlockMrkTextNodeConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulBlockMrkTextNodeEdge>;
+  nodes: Array<ContentfulBlockMrkTextNode>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulBlockMrkTextNodeGroupConnection>;
+};
+
+
+export type ContentfulBlockMrkTextNodeConnectionDistinctArgs = {
+  field: ContentfulBlockMrkTextNodeFieldsEnum;
+};
+
+
+export type ContentfulBlockMrkTextNodeConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulBlockMrkTextNodeFieldsEnum;
+};
+
+export type ContentfulBlockMrkTextNodeEdge = {
+  next?: Maybe<ContentfulBlockMrkTextNode>;
+  node: ContentfulBlockMrkTextNode;
+  previous?: Maybe<ContentfulBlockMrkTextNode>;
+};
+
+export type ContentfulBlockMrkTextNodeFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'mrk'
+  | 'sys___type'
+  | 'childrenMarkdownRemark'
+  | 'childrenMarkdownRemark___id'
+  | 'childrenMarkdownRemark___frontmatter___title'
+  | 'childrenMarkdownRemark___excerpt'
+  | 'childrenMarkdownRemark___rawMarkdownBody'
+  | 'childrenMarkdownRemark___html'
+  | 'childrenMarkdownRemark___htmlAst'
+  | 'childrenMarkdownRemark___excerptAst'
+  | 'childrenMarkdownRemark___headings'
+  | 'childrenMarkdownRemark___headings___id'
+  | 'childrenMarkdownRemark___headings___value'
+  | 'childrenMarkdownRemark___headings___depth'
+  | 'childrenMarkdownRemark___timeToRead'
+  | 'childrenMarkdownRemark___tableOfContents'
+  | 'childrenMarkdownRemark___wordCount___paragraphs'
+  | 'childrenMarkdownRemark___wordCount___sentences'
+  | 'childrenMarkdownRemark___wordCount___words'
+  | 'childrenMarkdownRemark___parent___id'
+  | 'childrenMarkdownRemark___parent___parent___id'
+  | 'childrenMarkdownRemark___parent___parent___children'
+  | 'childrenMarkdownRemark___parent___children'
+  | 'childrenMarkdownRemark___parent___children___id'
+  | 'childrenMarkdownRemark___parent___children___children'
+  | 'childrenMarkdownRemark___parent___internal___content'
+  | 'childrenMarkdownRemark___parent___internal___contentDigest'
+  | 'childrenMarkdownRemark___parent___internal___description'
+  | 'childrenMarkdownRemark___parent___internal___fieldOwners'
+  | 'childrenMarkdownRemark___parent___internal___ignoreType'
+  | 'childrenMarkdownRemark___parent___internal___mediaType'
+  | 'childrenMarkdownRemark___parent___internal___owner'
+  | 'childrenMarkdownRemark___parent___internal___type'
+  | 'childrenMarkdownRemark___children'
+  | 'childrenMarkdownRemark___children___id'
+  | 'childrenMarkdownRemark___children___parent___id'
+  | 'childrenMarkdownRemark___children___parent___children'
+  | 'childrenMarkdownRemark___children___children'
+  | 'childrenMarkdownRemark___children___children___id'
+  | 'childrenMarkdownRemark___children___children___children'
+  | 'childrenMarkdownRemark___children___internal___content'
+  | 'childrenMarkdownRemark___children___internal___contentDigest'
+  | 'childrenMarkdownRemark___children___internal___description'
+  | 'childrenMarkdownRemark___children___internal___fieldOwners'
+  | 'childrenMarkdownRemark___children___internal___ignoreType'
+  | 'childrenMarkdownRemark___children___internal___mediaType'
+  | 'childrenMarkdownRemark___children___internal___owner'
+  | 'childrenMarkdownRemark___children___internal___type'
+  | 'childrenMarkdownRemark___internal___content'
+  | 'childrenMarkdownRemark___internal___contentDigest'
+  | 'childrenMarkdownRemark___internal___description'
+  | 'childrenMarkdownRemark___internal___fieldOwners'
+  | 'childrenMarkdownRemark___internal___ignoreType'
+  | 'childrenMarkdownRemark___internal___mediaType'
+  | 'childrenMarkdownRemark___internal___owner'
+  | 'childrenMarkdownRemark___internal___type'
+  | 'childMarkdownRemark___id'
+  | 'childMarkdownRemark___frontmatter___title'
+  | 'childMarkdownRemark___excerpt'
+  | 'childMarkdownRemark___rawMarkdownBody'
+  | 'childMarkdownRemark___html'
+  | 'childMarkdownRemark___htmlAst'
+  | 'childMarkdownRemark___excerptAst'
+  | 'childMarkdownRemark___headings'
+  | 'childMarkdownRemark___headings___id'
+  | 'childMarkdownRemark___headings___value'
+  | 'childMarkdownRemark___headings___depth'
+  | 'childMarkdownRemark___timeToRead'
+  | 'childMarkdownRemark___tableOfContents'
+  | 'childMarkdownRemark___wordCount___paragraphs'
+  | 'childMarkdownRemark___wordCount___sentences'
+  | 'childMarkdownRemark___wordCount___words'
+  | 'childMarkdownRemark___parent___id'
+  | 'childMarkdownRemark___parent___parent___id'
+  | 'childMarkdownRemark___parent___parent___children'
+  | 'childMarkdownRemark___parent___children'
+  | 'childMarkdownRemark___parent___children___id'
+  | 'childMarkdownRemark___parent___children___children'
+  | 'childMarkdownRemark___parent___internal___content'
+  | 'childMarkdownRemark___parent___internal___contentDigest'
+  | 'childMarkdownRemark___parent___internal___description'
+  | 'childMarkdownRemark___parent___internal___fieldOwners'
+  | 'childMarkdownRemark___parent___internal___ignoreType'
+  | 'childMarkdownRemark___parent___internal___mediaType'
+  | 'childMarkdownRemark___parent___internal___owner'
+  | 'childMarkdownRemark___parent___internal___type'
+  | 'childMarkdownRemark___children'
+  | 'childMarkdownRemark___children___id'
+  | 'childMarkdownRemark___children___parent___id'
+  | 'childMarkdownRemark___children___parent___children'
+  | 'childMarkdownRemark___children___children'
+  | 'childMarkdownRemark___children___children___id'
+  | 'childMarkdownRemark___children___children___children'
+  | 'childMarkdownRemark___children___internal___content'
+  | 'childMarkdownRemark___children___internal___contentDigest'
+  | 'childMarkdownRemark___children___internal___description'
+  | 'childMarkdownRemark___children___internal___fieldOwners'
+  | 'childMarkdownRemark___children___internal___ignoreType'
+  | 'childMarkdownRemark___children___internal___mediaType'
+  | 'childMarkdownRemark___children___internal___owner'
+  | 'childMarkdownRemark___children___internal___type'
+  | 'childMarkdownRemark___internal___content'
+  | 'childMarkdownRemark___internal___contentDigest'
+  | 'childMarkdownRemark___internal___description'
+  | 'childMarkdownRemark___internal___fieldOwners'
+  | 'childMarkdownRemark___internal___ignoreType'
+  | 'childMarkdownRemark___internal___mediaType'
+  | 'childMarkdownRemark___internal___owner'
+  | 'childMarkdownRemark___internal___type';
+
+export type ContentfulBlockMrkTextNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  mrk?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+};
+
+export type ContentfulBlockMrkTextNodeFilterListInput = {
+  elemMatch?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+};
+
+export type ContentfulBlockMrkTextNodeGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulBlockMrkTextNodeEdge>;
+  nodes: Array<ContentfulBlockMrkTextNode>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulBlockMrkTextNodeSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulBlockMrkTextNodeFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulBlockMrkTextNodeSys = {
+  type?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulBlockMrkTextNodeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulBlockSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulBlockFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulBlockSys = {
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulBlockSysContentType>;
+};
+
+export type ContentfulBlockSysContentType = {
+  sys?: Maybe<ContentfulBlockSysContentTypeSys>;
+};
+
+export type ContentfulBlockSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulBlockSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulBlockSysContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulBlockSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulBlockSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulBlockSysContentTypeFilterInput>;
 };
 
 export type ContentfulContentType = Node & {
@@ -629,6 +1640,508 @@ export type ContentfulImageFormat =
   | 'PNG'
   | 'WEBP';
 
+export type ContentfulPage = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  slug?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  lang?: Maybe<Scalars['String']>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  blocks?: Maybe<Array<Maybe<ContentfulBlock>>>;
+  spaceId?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  sys?: Maybe<ContentfulPageSys>;
+  node_locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulPageCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type ContentfulPageUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulPageEdge>;
+  nodes: Array<ContentfulPage>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<ContentfulPageGroupConnection>;
+};
+
+
+export type ContentfulPageConnectionDistinctArgs = {
+  field: ContentfulPageFieldsEnum;
+};
+
+
+export type ContentfulPageConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: ContentfulPageFieldsEnum;
+};
+
+export type ContentfulPageEdge = {
+  next?: Maybe<ContentfulPage>;
+  node: ContentfulPage;
+  previous?: Maybe<ContentfulPage>;
+};
+
+export type ContentfulPageFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'slug'
+  | 'title'
+  | 'description'
+  | 'lang'
+  | 'tags'
+  | 'blocks'
+  | 'blocks___id'
+  | 'blocks___parent___id'
+  | 'blocks___parent___parent___id'
+  | 'blocks___parent___parent___children'
+  | 'blocks___parent___children'
+  | 'blocks___parent___children___id'
+  | 'blocks___parent___children___children'
+  | 'blocks___parent___internal___content'
+  | 'blocks___parent___internal___contentDigest'
+  | 'blocks___parent___internal___description'
+  | 'blocks___parent___internal___fieldOwners'
+  | 'blocks___parent___internal___ignoreType'
+  | 'blocks___parent___internal___mediaType'
+  | 'blocks___parent___internal___owner'
+  | 'blocks___parent___internal___type'
+  | 'blocks___children'
+  | 'blocks___children___id'
+  | 'blocks___children___parent___id'
+  | 'blocks___children___parent___children'
+  | 'blocks___children___children'
+  | 'blocks___children___children___id'
+  | 'blocks___children___children___children'
+  | 'blocks___children___internal___content'
+  | 'blocks___children___internal___contentDigest'
+  | 'blocks___children___internal___description'
+  | 'blocks___children___internal___fieldOwners'
+  | 'blocks___children___internal___ignoreType'
+  | 'blocks___children___internal___mediaType'
+  | 'blocks___children___internal___owner'
+  | 'blocks___children___internal___type'
+  | 'blocks___internal___content'
+  | 'blocks___internal___contentDigest'
+  | 'blocks___internal___description'
+  | 'blocks___internal___fieldOwners'
+  | 'blocks___internal___ignoreType'
+  | 'blocks___internal___mediaType'
+  | 'blocks___internal___owner'
+  | 'blocks___internal___type'
+  | 'blocks___title'
+  | 'blocks___className'
+  | 'blocks___image___id'
+  | 'blocks___image___parent___id'
+  | 'blocks___image___parent___children'
+  | 'blocks___image___children'
+  | 'blocks___image___children___id'
+  | 'blocks___image___children___children'
+  | 'blocks___image___internal___content'
+  | 'blocks___image___internal___contentDigest'
+  | 'blocks___image___internal___description'
+  | 'blocks___image___internal___fieldOwners'
+  | 'blocks___image___internal___ignoreType'
+  | 'blocks___image___internal___mediaType'
+  | 'blocks___image___internal___owner'
+  | 'blocks___image___internal___type'
+  | 'blocks___image___contentful_id'
+  | 'blocks___image___spaceId'
+  | 'blocks___image___createdAt'
+  | 'blocks___image___updatedAt'
+  | 'blocks___image___file___url'
+  | 'blocks___image___file___fileName'
+  | 'blocks___image___file___contentType'
+  | 'blocks___image___title'
+  | 'blocks___image___description'
+  | 'blocks___image___node_locale'
+  | 'blocks___image___sys___type'
+  | 'blocks___image___sys___revision'
+  | 'blocks___image___fixed___base64'
+  | 'blocks___image___fixed___tracedSVG'
+  | 'blocks___image___fixed___aspectRatio'
+  | 'blocks___image___fixed___width'
+  | 'blocks___image___fixed___height'
+  | 'blocks___image___fixed___src'
+  | 'blocks___image___fixed___srcSet'
+  | 'blocks___image___fixed___srcWebp'
+  | 'blocks___image___fixed___srcSetWebp'
+  | 'blocks___image___resolutions___base64'
+  | 'blocks___image___resolutions___tracedSVG'
+  | 'blocks___image___resolutions___aspectRatio'
+  | 'blocks___image___resolutions___width'
+  | 'blocks___image___resolutions___height'
+  | 'blocks___image___resolutions___src'
+  | 'blocks___image___resolutions___srcSet'
+  | 'blocks___image___resolutions___srcWebp'
+  | 'blocks___image___resolutions___srcSetWebp'
+  | 'blocks___image___fluid___base64'
+  | 'blocks___image___fluid___tracedSVG'
+  | 'blocks___image___fluid___aspectRatio'
+  | 'blocks___image___fluid___src'
+  | 'blocks___image___fluid___srcSet'
+  | 'blocks___image___fluid___srcWebp'
+  | 'blocks___image___fluid___srcSetWebp'
+  | 'blocks___image___fluid___sizes'
+  | 'blocks___image___sizes___base64'
+  | 'blocks___image___sizes___tracedSVG'
+  | 'blocks___image___sizes___aspectRatio'
+  | 'blocks___image___sizes___src'
+  | 'blocks___image___sizes___srcSet'
+  | 'blocks___image___sizes___srcWebp'
+  | 'blocks___image___sizes___srcSetWebp'
+  | 'blocks___image___sizes___sizes'
+  | 'blocks___image___resize___base64'
+  | 'blocks___image___resize___tracedSVG'
+  | 'blocks___image___resize___src'
+  | 'blocks___image___resize___width'
+  | 'blocks___image___resize___height'
+  | 'blocks___image___resize___aspectRatio'
+  | 'blocks___page'
+  | 'blocks___page___id'
+  | 'blocks___page___parent___id'
+  | 'blocks___page___parent___children'
+  | 'blocks___page___children'
+  | 'blocks___page___children___id'
+  | 'blocks___page___children___children'
+  | 'blocks___page___internal___content'
+  | 'blocks___page___internal___contentDigest'
+  | 'blocks___page___internal___description'
+  | 'blocks___page___internal___fieldOwners'
+  | 'blocks___page___internal___ignoreType'
+  | 'blocks___page___internal___mediaType'
+  | 'blocks___page___internal___owner'
+  | 'blocks___page___internal___type'
+  | 'blocks___page___slug'
+  | 'blocks___page___title'
+  | 'blocks___page___description'
+  | 'blocks___page___lang'
+  | 'blocks___page___tags'
+  | 'blocks___page___blocks'
+  | 'blocks___page___blocks___id'
+  | 'blocks___page___blocks___children'
+  | 'blocks___page___blocks___title'
+  | 'blocks___page___blocks___className'
+  | 'blocks___page___blocks___page'
+  | 'blocks___page___blocks___spaceId'
+  | 'blocks___page___blocks___contentful_id'
+  | 'blocks___page___blocks___createdAt'
+  | 'blocks___page___blocks___updatedAt'
+  | 'blocks___page___blocks___node_locale'
+  | 'blocks___page___blocks___childrenContentfulBlockMrkTextNode'
+  | 'blocks___page___spaceId'
+  | 'blocks___page___contentful_id'
+  | 'blocks___page___createdAt'
+  | 'blocks___page___updatedAt'
+  | 'blocks___page___sys___type'
+  | 'blocks___page___sys___revision'
+  | 'blocks___page___node_locale'
+  | 'blocks___mrk___id'
+  | 'blocks___mrk___parent___id'
+  | 'blocks___mrk___parent___children'
+  | 'blocks___mrk___children'
+  | 'blocks___mrk___children___id'
+  | 'blocks___mrk___children___children'
+  | 'blocks___mrk___internal___content'
+  | 'blocks___mrk___internal___contentDigest'
+  | 'blocks___mrk___internal___description'
+  | 'blocks___mrk___internal___fieldOwners'
+  | 'blocks___mrk___internal___ignoreType'
+  | 'blocks___mrk___internal___mediaType'
+  | 'blocks___mrk___internal___owner'
+  | 'blocks___mrk___internal___type'
+  | 'blocks___mrk___mrk'
+  | 'blocks___mrk___sys___type'
+  | 'blocks___mrk___childrenMarkdownRemark'
+  | 'blocks___mrk___childrenMarkdownRemark___id'
+  | 'blocks___mrk___childrenMarkdownRemark___excerpt'
+  | 'blocks___mrk___childrenMarkdownRemark___rawMarkdownBody'
+  | 'blocks___mrk___childrenMarkdownRemark___html'
+  | 'blocks___mrk___childrenMarkdownRemark___htmlAst'
+  | 'blocks___mrk___childrenMarkdownRemark___excerptAst'
+  | 'blocks___mrk___childrenMarkdownRemark___headings'
+  | 'blocks___mrk___childrenMarkdownRemark___timeToRead'
+  | 'blocks___mrk___childrenMarkdownRemark___tableOfContents'
+  | 'blocks___mrk___childrenMarkdownRemark___children'
+  | 'blocks___mrk___childMarkdownRemark___id'
+  | 'blocks___mrk___childMarkdownRemark___excerpt'
+  | 'blocks___mrk___childMarkdownRemark___rawMarkdownBody'
+  | 'blocks___mrk___childMarkdownRemark___html'
+  | 'blocks___mrk___childMarkdownRemark___htmlAst'
+  | 'blocks___mrk___childMarkdownRemark___excerptAst'
+  | 'blocks___mrk___childMarkdownRemark___headings'
+  | 'blocks___mrk___childMarkdownRemark___timeToRead'
+  | 'blocks___mrk___childMarkdownRemark___tableOfContents'
+  | 'blocks___mrk___childMarkdownRemark___children'
+  | 'blocks___spaceId'
+  | 'blocks___contentful_id'
+  | 'blocks___createdAt'
+  | 'blocks___updatedAt'
+  | 'blocks___sys___type'
+  | 'blocks___sys___revision'
+  | 'blocks___node_locale'
+  | 'blocks___childrenContentfulBlockMrkTextNode'
+  | 'blocks___childrenContentfulBlockMrkTextNode___id'
+  | 'blocks___childrenContentfulBlockMrkTextNode___parent___id'
+  | 'blocks___childrenContentfulBlockMrkTextNode___parent___children'
+  | 'blocks___childrenContentfulBlockMrkTextNode___children'
+  | 'blocks___childrenContentfulBlockMrkTextNode___children___id'
+  | 'blocks___childrenContentfulBlockMrkTextNode___children___children'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___content'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___contentDigest'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___description'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___fieldOwners'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___ignoreType'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___mediaType'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___owner'
+  | 'blocks___childrenContentfulBlockMrkTextNode___internal___type'
+  | 'blocks___childrenContentfulBlockMrkTextNode___mrk'
+  | 'blocks___childrenContentfulBlockMrkTextNode___sys___type'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___id'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___excerpt'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___rawMarkdownBody'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___html'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___htmlAst'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___excerptAst'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___headings'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___timeToRead'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___tableOfContents'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childrenMarkdownRemark___children'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___id'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___excerpt'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___rawMarkdownBody'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___html'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___htmlAst'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___excerptAst'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___headings'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___timeToRead'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___tableOfContents'
+  | 'blocks___childrenContentfulBlockMrkTextNode___childMarkdownRemark___children'
+  | 'blocks___childContentfulBlockMrkTextNode___id'
+  | 'blocks___childContentfulBlockMrkTextNode___parent___id'
+  | 'blocks___childContentfulBlockMrkTextNode___parent___children'
+  | 'blocks___childContentfulBlockMrkTextNode___children'
+  | 'blocks___childContentfulBlockMrkTextNode___children___id'
+  | 'blocks___childContentfulBlockMrkTextNode___children___children'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___content'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___contentDigest'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___description'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___fieldOwners'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___ignoreType'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___mediaType'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___owner'
+  | 'blocks___childContentfulBlockMrkTextNode___internal___type'
+  | 'blocks___childContentfulBlockMrkTextNode___mrk'
+  | 'blocks___childContentfulBlockMrkTextNode___sys___type'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___id'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___excerpt'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___rawMarkdownBody'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___html'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___htmlAst'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___excerptAst'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___headings'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___timeToRead'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___tableOfContents'
+  | 'blocks___childContentfulBlockMrkTextNode___childrenMarkdownRemark___children'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___id'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___excerpt'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___rawMarkdownBody'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___html'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___htmlAst'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___excerptAst'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___headings'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___timeToRead'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___tableOfContents'
+  | 'blocks___childContentfulBlockMrkTextNode___childMarkdownRemark___children'
+  | 'spaceId'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys___type'
+  | 'sys___revision'
+  | 'sys___contentType___sys___type'
+  | 'sys___contentType___sys___linkType'
+  | 'sys___contentType___sys___id'
+  | 'sys___contentType___sys___contentful_id'
+  | 'node_locale';
+
+export type ContentfulPageFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
+  blocks?: Maybe<ContentfulBlockFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulPageFilterListInput = {
+  elemMatch?: Maybe<ContentfulPageFilterInput>;
+};
+
+export type ContentfulPageGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<ContentfulPageEdge>;
+  nodes: Array<ContentfulPage>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageSortInput = {
+  fields?: Maybe<Array<Maybe<ContentfulPageFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
+export type ContentfulPageSys = {
+  type?: Maybe<Scalars['String']>;
+  revision?: Maybe<Scalars['Int']>;
+  contentType?: Maybe<ContentfulPageSysContentType>;
+};
+
+export type ContentfulPageSysContentType = {
+  sys?: Maybe<ContentfulPageSysContentTypeSys>;
+};
+
+export type ContentfulPageSysContentTypeFilterInput = {
+  sys?: Maybe<ContentfulPageSysContentTypeSysFilterInput>;
+};
+
+export type ContentfulPageSysContentTypeSys = {
+  type?: Maybe<Scalars['String']>;
+  linkType?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['String']>;
+  contentful_id?: Maybe<Scalars['String']>;
+};
+
+export type ContentfulPageSysContentTypeSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  linkType?: Maybe<StringQueryOperatorInput>;
+  id?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+};
+
+export type ContentfulPageSysFilterInput = {
+  type?: Maybe<StringQueryOperatorInput>;
+  revision?: Maybe<IntQueryOperatorInput>;
+  contentType?: Maybe<ContentfulPageSysContentTypeFilterInput>;
+};
+
 export type ContentfulResize = {
   base64?: Maybe<Scalars['String']>;
   tracedSVG?: Maybe<Scalars['String']>;
@@ -691,1494 +2204,6 @@ export type ContentfulSizesFilterInput = {
   srcWebp?: Maybe<StringQueryOperatorInput>;
   srcSetWebp?: Maybe<StringQueryOperatorInput>;
   sizes?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTooltip = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  title?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
-  lang?: Maybe<Array<Maybe<Scalars['String']>>>;
-  image?: Maybe<Array<Maybe<ContentfulAsset>>>;
-  description?: Maybe<ContentfulTooltipDescriptionTextNode>;
-  body?: Maybe<ContentfulTooltipBodyTextNode>;
-  spaceId?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-  createdAt?: Maybe<Scalars['Date']>;
-  updatedAt?: Maybe<Scalars['Date']>;
-  sys?: Maybe<ContentfulTooltipSys>;
-  node_locale?: Maybe<Scalars['String']>;
-  /** Returns all children nodes filtered by type contentfulTooltipBodyTextNode */
-  childrenContentfulTooltipBodyTextNode?: Maybe<Array<Maybe<ContentfulTooltipBodyTextNode>>>;
-  /**
-   * Returns the first child node of type contentfulTooltipBodyTextNode or null if
-   * there are no children of given type on this node
-   */
-  childContentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNode>;
-  /** Returns all children nodes filtered by type contentfulTooltipDescriptionTextNode */
-  childrenContentfulTooltipDescriptionTextNode?: Maybe<Array<Maybe<ContentfulTooltipDescriptionTextNode>>>;
-  /**
-   * Returns the first child node of type contentfulTooltipDescriptionTextNode or
-   * null if there are no children of given type on this node
-   */
-  childContentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNode>;
-};
-
-
-export type ContentfulTooltipCreatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-
-export type ContentfulTooltipUpdatedAtArgs = {
-  formatString?: Maybe<Scalars['String']>;
-  fromNow?: Maybe<Scalars['Boolean']>;
-  difference?: Maybe<Scalars['String']>;
-  locale?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipBodyTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  body?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulTooltipBodyTextNodeSys>;
-  /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
-  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
-};
-
-export type ContentfulTooltipBodyTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipBodyTextNodeEdge>;
-  nodes: Array<ContentfulTooltipBodyTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTooltipBodyTextNodeGroupConnection>;
-};
-
-
-export type ContentfulTooltipBodyTextNodeConnectionDistinctArgs = {
-  field: ContentfulTooltipBodyTextNodeFieldsEnum;
-};
-
-
-export type ContentfulTooltipBodyTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTooltipBodyTextNodeFieldsEnum;
-};
-
-export type ContentfulTooltipBodyTextNodeEdge = {
-  next?: Maybe<ContentfulTooltipBodyTextNode>;
-  node: ContentfulTooltipBodyTextNode;
-  previous?: Maybe<ContentfulTooltipBodyTextNode>;
-};
-
-export type ContentfulTooltipBodyTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'body'
-  | 'sys___type'
-  | 'childrenMarkdownRemark'
-  | 'childrenMarkdownRemark___id'
-  | 'childrenMarkdownRemark___frontmatter___title'
-  | 'childrenMarkdownRemark___excerpt'
-  | 'childrenMarkdownRemark___rawMarkdownBody'
-  | 'childrenMarkdownRemark___html'
-  | 'childrenMarkdownRemark___htmlAst'
-  | 'childrenMarkdownRemark___excerptAst'
-  | 'childrenMarkdownRemark___headings'
-  | 'childrenMarkdownRemark___headings___id'
-  | 'childrenMarkdownRemark___headings___value'
-  | 'childrenMarkdownRemark___headings___depth'
-  | 'childrenMarkdownRemark___timeToRead'
-  | 'childrenMarkdownRemark___tableOfContents'
-  | 'childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childrenMarkdownRemark___wordCount___sentences'
-  | 'childrenMarkdownRemark___wordCount___words'
-  | 'childrenMarkdownRemark___parent___id'
-  | 'childrenMarkdownRemark___parent___parent___id'
-  | 'childrenMarkdownRemark___parent___parent___children'
-  | 'childrenMarkdownRemark___parent___children'
-  | 'childrenMarkdownRemark___parent___children___id'
-  | 'childrenMarkdownRemark___parent___children___children'
-  | 'childrenMarkdownRemark___parent___internal___content'
-  | 'childrenMarkdownRemark___parent___internal___contentDigest'
-  | 'childrenMarkdownRemark___parent___internal___description'
-  | 'childrenMarkdownRemark___parent___internal___fieldOwners'
-  | 'childrenMarkdownRemark___parent___internal___ignoreType'
-  | 'childrenMarkdownRemark___parent___internal___mediaType'
-  | 'childrenMarkdownRemark___parent___internal___owner'
-  | 'childrenMarkdownRemark___parent___internal___type'
-  | 'childrenMarkdownRemark___children'
-  | 'childrenMarkdownRemark___children___id'
-  | 'childrenMarkdownRemark___children___parent___id'
-  | 'childrenMarkdownRemark___children___parent___children'
-  | 'childrenMarkdownRemark___children___children'
-  | 'childrenMarkdownRemark___children___children___id'
-  | 'childrenMarkdownRemark___children___children___children'
-  | 'childrenMarkdownRemark___children___internal___content'
-  | 'childrenMarkdownRemark___children___internal___contentDigest'
-  | 'childrenMarkdownRemark___children___internal___description'
-  | 'childrenMarkdownRemark___children___internal___fieldOwners'
-  | 'childrenMarkdownRemark___children___internal___ignoreType'
-  | 'childrenMarkdownRemark___children___internal___mediaType'
-  | 'childrenMarkdownRemark___children___internal___owner'
-  | 'childrenMarkdownRemark___children___internal___type'
-  | 'childrenMarkdownRemark___internal___content'
-  | 'childrenMarkdownRemark___internal___contentDigest'
-  | 'childrenMarkdownRemark___internal___description'
-  | 'childrenMarkdownRemark___internal___fieldOwners'
-  | 'childrenMarkdownRemark___internal___ignoreType'
-  | 'childrenMarkdownRemark___internal___mediaType'
-  | 'childrenMarkdownRemark___internal___owner'
-  | 'childrenMarkdownRemark___internal___type'
-  | 'childMarkdownRemark___id'
-  | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___excerpt'
-  | 'childMarkdownRemark___rawMarkdownBody'
-  | 'childMarkdownRemark___html'
-  | 'childMarkdownRemark___htmlAst'
-  | 'childMarkdownRemark___excerptAst'
-  | 'childMarkdownRemark___headings'
-  | 'childMarkdownRemark___headings___id'
-  | 'childMarkdownRemark___headings___value'
-  | 'childMarkdownRemark___headings___depth'
-  | 'childMarkdownRemark___timeToRead'
-  | 'childMarkdownRemark___tableOfContents'
-  | 'childMarkdownRemark___wordCount___paragraphs'
-  | 'childMarkdownRemark___wordCount___sentences'
-  | 'childMarkdownRemark___wordCount___words'
-  | 'childMarkdownRemark___parent___id'
-  | 'childMarkdownRemark___parent___parent___id'
-  | 'childMarkdownRemark___parent___parent___children'
-  | 'childMarkdownRemark___parent___children'
-  | 'childMarkdownRemark___parent___children___id'
-  | 'childMarkdownRemark___parent___children___children'
-  | 'childMarkdownRemark___parent___internal___content'
-  | 'childMarkdownRemark___parent___internal___contentDigest'
-  | 'childMarkdownRemark___parent___internal___description'
-  | 'childMarkdownRemark___parent___internal___fieldOwners'
-  | 'childMarkdownRemark___parent___internal___ignoreType'
-  | 'childMarkdownRemark___parent___internal___mediaType'
-  | 'childMarkdownRemark___parent___internal___owner'
-  | 'childMarkdownRemark___parent___internal___type'
-  | 'childMarkdownRemark___children'
-  | 'childMarkdownRemark___children___id'
-  | 'childMarkdownRemark___children___parent___id'
-  | 'childMarkdownRemark___children___parent___children'
-  | 'childMarkdownRemark___children___children'
-  | 'childMarkdownRemark___children___children___id'
-  | 'childMarkdownRemark___children___children___children'
-  | 'childMarkdownRemark___children___internal___content'
-  | 'childMarkdownRemark___children___internal___contentDigest'
-  | 'childMarkdownRemark___children___internal___description'
-  | 'childMarkdownRemark___children___internal___fieldOwners'
-  | 'childMarkdownRemark___children___internal___ignoreType'
-  | 'childMarkdownRemark___children___internal___mediaType'
-  | 'childMarkdownRemark___children___internal___owner'
-  | 'childMarkdownRemark___children___internal___type'
-  | 'childMarkdownRemark___internal___content'
-  | 'childMarkdownRemark___internal___contentDigest'
-  | 'childMarkdownRemark___internal___description'
-  | 'childMarkdownRemark___internal___fieldOwners'
-  | 'childMarkdownRemark___internal___ignoreType'
-  | 'childMarkdownRemark___internal___mediaType'
-  | 'childMarkdownRemark___internal___owner'
-  | 'childMarkdownRemark___internal___type';
-
-export type ContentfulTooltipBodyTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-};
-
-export type ContentfulTooltipBodyTextNodeFilterListInput = {
-  elemMatch?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
-};
-
-export type ContentfulTooltipBodyTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipBodyTextNodeEdge>;
-  nodes: Array<ContentfulTooltipBodyTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipBodyTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTooltipBodyTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTooltipBodyTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipBodyTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTooltipConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipEdge>;
-  nodes: Array<ContentfulTooltip>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTooltipGroupConnection>;
-};
-
-
-export type ContentfulTooltipConnectionDistinctArgs = {
-  field: ContentfulTooltipFieldsEnum;
-};
-
-
-export type ContentfulTooltipConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTooltipFieldsEnum;
-};
-
-export type ContentfulTooltipDescriptionTextNode = Node & {
-  id: Scalars['ID'];
-  parent?: Maybe<Node>;
-  children: Array<Node>;
-  internal: Internal;
-  description?: Maybe<Scalars['String']>;
-  sys?: Maybe<ContentfulTooltipDescriptionTextNodeSys>;
-  /** Returns all children nodes filtered by type MarkdownRemark */
-  childrenMarkdownRemark?: Maybe<Array<Maybe<MarkdownRemark>>>;
-  /** Returns the first child node of type MarkdownRemark or null if there are no children of given type on this node */
-  childMarkdownRemark?: Maybe<MarkdownRemark>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTooltipDescriptionTextNode>;
-  pageInfo: PageInfo;
-  distinct: Array<Scalars['String']>;
-  group: Array<ContentfulTooltipDescriptionTextNodeGroupConnection>;
-};
-
-
-export type ContentfulTooltipDescriptionTextNodeConnectionDistinctArgs = {
-  field: ContentfulTooltipDescriptionTextNodeFieldsEnum;
-};
-
-
-export type ContentfulTooltipDescriptionTextNodeConnectionGroupArgs = {
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-  field: ContentfulTooltipDescriptionTextNodeFieldsEnum;
-};
-
-export type ContentfulTooltipDescriptionTextNodeEdge = {
-  next?: Maybe<ContentfulTooltipDescriptionTextNode>;
-  node: ContentfulTooltipDescriptionTextNode;
-  previous?: Maybe<ContentfulTooltipDescriptionTextNode>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'description'
-  | 'sys___type'
-  | 'childrenMarkdownRemark'
-  | 'childrenMarkdownRemark___id'
-  | 'childrenMarkdownRemark___frontmatter___title'
-  | 'childrenMarkdownRemark___excerpt'
-  | 'childrenMarkdownRemark___rawMarkdownBody'
-  | 'childrenMarkdownRemark___html'
-  | 'childrenMarkdownRemark___htmlAst'
-  | 'childrenMarkdownRemark___excerptAst'
-  | 'childrenMarkdownRemark___headings'
-  | 'childrenMarkdownRemark___headings___id'
-  | 'childrenMarkdownRemark___headings___value'
-  | 'childrenMarkdownRemark___headings___depth'
-  | 'childrenMarkdownRemark___timeToRead'
-  | 'childrenMarkdownRemark___tableOfContents'
-  | 'childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childrenMarkdownRemark___wordCount___sentences'
-  | 'childrenMarkdownRemark___wordCount___words'
-  | 'childrenMarkdownRemark___parent___id'
-  | 'childrenMarkdownRemark___parent___parent___id'
-  | 'childrenMarkdownRemark___parent___parent___children'
-  | 'childrenMarkdownRemark___parent___children'
-  | 'childrenMarkdownRemark___parent___children___id'
-  | 'childrenMarkdownRemark___parent___children___children'
-  | 'childrenMarkdownRemark___parent___internal___content'
-  | 'childrenMarkdownRemark___parent___internal___contentDigest'
-  | 'childrenMarkdownRemark___parent___internal___description'
-  | 'childrenMarkdownRemark___parent___internal___fieldOwners'
-  | 'childrenMarkdownRemark___parent___internal___ignoreType'
-  | 'childrenMarkdownRemark___parent___internal___mediaType'
-  | 'childrenMarkdownRemark___parent___internal___owner'
-  | 'childrenMarkdownRemark___parent___internal___type'
-  | 'childrenMarkdownRemark___children'
-  | 'childrenMarkdownRemark___children___id'
-  | 'childrenMarkdownRemark___children___parent___id'
-  | 'childrenMarkdownRemark___children___parent___children'
-  | 'childrenMarkdownRemark___children___children'
-  | 'childrenMarkdownRemark___children___children___id'
-  | 'childrenMarkdownRemark___children___children___children'
-  | 'childrenMarkdownRemark___children___internal___content'
-  | 'childrenMarkdownRemark___children___internal___contentDigest'
-  | 'childrenMarkdownRemark___children___internal___description'
-  | 'childrenMarkdownRemark___children___internal___fieldOwners'
-  | 'childrenMarkdownRemark___children___internal___ignoreType'
-  | 'childrenMarkdownRemark___children___internal___mediaType'
-  | 'childrenMarkdownRemark___children___internal___owner'
-  | 'childrenMarkdownRemark___children___internal___type'
-  | 'childrenMarkdownRemark___internal___content'
-  | 'childrenMarkdownRemark___internal___contentDigest'
-  | 'childrenMarkdownRemark___internal___description'
-  | 'childrenMarkdownRemark___internal___fieldOwners'
-  | 'childrenMarkdownRemark___internal___ignoreType'
-  | 'childrenMarkdownRemark___internal___mediaType'
-  | 'childrenMarkdownRemark___internal___owner'
-  | 'childrenMarkdownRemark___internal___type'
-  | 'childMarkdownRemark___id'
-  | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___excerpt'
-  | 'childMarkdownRemark___rawMarkdownBody'
-  | 'childMarkdownRemark___html'
-  | 'childMarkdownRemark___htmlAst'
-  | 'childMarkdownRemark___excerptAst'
-  | 'childMarkdownRemark___headings'
-  | 'childMarkdownRemark___headings___id'
-  | 'childMarkdownRemark___headings___value'
-  | 'childMarkdownRemark___headings___depth'
-  | 'childMarkdownRemark___timeToRead'
-  | 'childMarkdownRemark___tableOfContents'
-  | 'childMarkdownRemark___wordCount___paragraphs'
-  | 'childMarkdownRemark___wordCount___sentences'
-  | 'childMarkdownRemark___wordCount___words'
-  | 'childMarkdownRemark___parent___id'
-  | 'childMarkdownRemark___parent___parent___id'
-  | 'childMarkdownRemark___parent___parent___children'
-  | 'childMarkdownRemark___parent___children'
-  | 'childMarkdownRemark___parent___children___id'
-  | 'childMarkdownRemark___parent___children___children'
-  | 'childMarkdownRemark___parent___internal___content'
-  | 'childMarkdownRemark___parent___internal___contentDigest'
-  | 'childMarkdownRemark___parent___internal___description'
-  | 'childMarkdownRemark___parent___internal___fieldOwners'
-  | 'childMarkdownRemark___parent___internal___ignoreType'
-  | 'childMarkdownRemark___parent___internal___mediaType'
-  | 'childMarkdownRemark___parent___internal___owner'
-  | 'childMarkdownRemark___parent___internal___type'
-  | 'childMarkdownRemark___children'
-  | 'childMarkdownRemark___children___id'
-  | 'childMarkdownRemark___children___parent___id'
-  | 'childMarkdownRemark___children___parent___children'
-  | 'childMarkdownRemark___children___children'
-  | 'childMarkdownRemark___children___children___id'
-  | 'childMarkdownRemark___children___children___children'
-  | 'childMarkdownRemark___children___internal___content'
-  | 'childMarkdownRemark___children___internal___contentDigest'
-  | 'childMarkdownRemark___children___internal___description'
-  | 'childMarkdownRemark___children___internal___fieldOwners'
-  | 'childMarkdownRemark___children___internal___ignoreType'
-  | 'childMarkdownRemark___children___internal___mediaType'
-  | 'childMarkdownRemark___children___internal___owner'
-  | 'childMarkdownRemark___children___internal___type'
-  | 'childMarkdownRemark___internal___content'
-  | 'childMarkdownRemark___internal___contentDigest'
-  | 'childMarkdownRemark___internal___description'
-  | 'childMarkdownRemark___internal___fieldOwners'
-  | 'childMarkdownRemark___internal___ignoreType'
-  | 'childMarkdownRemark___internal___mediaType'
-  | 'childMarkdownRemark___internal___owner'
-  | 'childMarkdownRemark___internal___type';
-
-export type ContentfulTooltipDescriptionTextNodeFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipDescriptionTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeFilterListInput = {
-  elemMatch?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipDescriptionTextNodeEdge>;
-  nodes: Array<ContentfulTooltipDescriptionTextNode>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTooltipDescriptionTextNodeFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeSys = {
-  type?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipDescriptionTextNodeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTooltipEdge = {
-  next?: Maybe<ContentfulTooltip>;
-  node: ContentfulTooltip;
-  previous?: Maybe<ContentfulTooltip>;
-};
-
-export type ContentfulTooltipFieldsEnum = 
-  | 'id'
-  | 'parent___id'
-  | 'parent___parent___id'
-  | 'parent___parent___parent___id'
-  | 'parent___parent___parent___children'
-  | 'parent___parent___children'
-  | 'parent___parent___children___id'
-  | 'parent___parent___children___children'
-  | 'parent___parent___internal___content'
-  | 'parent___parent___internal___contentDigest'
-  | 'parent___parent___internal___description'
-  | 'parent___parent___internal___fieldOwners'
-  | 'parent___parent___internal___ignoreType'
-  | 'parent___parent___internal___mediaType'
-  | 'parent___parent___internal___owner'
-  | 'parent___parent___internal___type'
-  | 'parent___children'
-  | 'parent___children___id'
-  | 'parent___children___parent___id'
-  | 'parent___children___parent___children'
-  | 'parent___children___children'
-  | 'parent___children___children___id'
-  | 'parent___children___children___children'
-  | 'parent___children___internal___content'
-  | 'parent___children___internal___contentDigest'
-  | 'parent___children___internal___description'
-  | 'parent___children___internal___fieldOwners'
-  | 'parent___children___internal___ignoreType'
-  | 'parent___children___internal___mediaType'
-  | 'parent___children___internal___owner'
-  | 'parent___children___internal___type'
-  | 'parent___internal___content'
-  | 'parent___internal___contentDigest'
-  | 'parent___internal___description'
-  | 'parent___internal___fieldOwners'
-  | 'parent___internal___ignoreType'
-  | 'parent___internal___mediaType'
-  | 'parent___internal___owner'
-  | 'parent___internal___type'
-  | 'children'
-  | 'children___id'
-  | 'children___parent___id'
-  | 'children___parent___parent___id'
-  | 'children___parent___parent___children'
-  | 'children___parent___children'
-  | 'children___parent___children___id'
-  | 'children___parent___children___children'
-  | 'children___parent___internal___content'
-  | 'children___parent___internal___contentDigest'
-  | 'children___parent___internal___description'
-  | 'children___parent___internal___fieldOwners'
-  | 'children___parent___internal___ignoreType'
-  | 'children___parent___internal___mediaType'
-  | 'children___parent___internal___owner'
-  | 'children___parent___internal___type'
-  | 'children___children'
-  | 'children___children___id'
-  | 'children___children___parent___id'
-  | 'children___children___parent___children'
-  | 'children___children___children'
-  | 'children___children___children___id'
-  | 'children___children___children___children'
-  | 'children___children___internal___content'
-  | 'children___children___internal___contentDigest'
-  | 'children___children___internal___description'
-  | 'children___children___internal___fieldOwners'
-  | 'children___children___internal___ignoreType'
-  | 'children___children___internal___mediaType'
-  | 'children___children___internal___owner'
-  | 'children___children___internal___type'
-  | 'children___internal___content'
-  | 'children___internal___contentDigest'
-  | 'children___internal___description'
-  | 'children___internal___fieldOwners'
-  | 'children___internal___ignoreType'
-  | 'children___internal___mediaType'
-  | 'children___internal___owner'
-  | 'children___internal___type'
-  | 'internal___content'
-  | 'internal___contentDigest'
-  | 'internal___description'
-  | 'internal___fieldOwners'
-  | 'internal___ignoreType'
-  | 'internal___mediaType'
-  | 'internal___owner'
-  | 'internal___type'
-  | 'title'
-  | 'slug'
-  | 'tags'
-  | 'lang'
-  | 'image'
-  | 'image___id'
-  | 'image___parent___id'
-  | 'image___parent___parent___id'
-  | 'image___parent___parent___children'
-  | 'image___parent___children'
-  | 'image___parent___children___id'
-  | 'image___parent___children___children'
-  | 'image___parent___internal___content'
-  | 'image___parent___internal___contentDigest'
-  | 'image___parent___internal___description'
-  | 'image___parent___internal___fieldOwners'
-  | 'image___parent___internal___ignoreType'
-  | 'image___parent___internal___mediaType'
-  | 'image___parent___internal___owner'
-  | 'image___parent___internal___type'
-  | 'image___children'
-  | 'image___children___id'
-  | 'image___children___parent___id'
-  | 'image___children___parent___children'
-  | 'image___children___children'
-  | 'image___children___children___id'
-  | 'image___children___children___children'
-  | 'image___children___internal___content'
-  | 'image___children___internal___contentDigest'
-  | 'image___children___internal___description'
-  | 'image___children___internal___fieldOwners'
-  | 'image___children___internal___ignoreType'
-  | 'image___children___internal___mediaType'
-  | 'image___children___internal___owner'
-  | 'image___children___internal___type'
-  | 'image___internal___content'
-  | 'image___internal___contentDigest'
-  | 'image___internal___description'
-  | 'image___internal___fieldOwners'
-  | 'image___internal___ignoreType'
-  | 'image___internal___mediaType'
-  | 'image___internal___owner'
-  | 'image___internal___type'
-  | 'image___contentful_id'
-  | 'image___spaceId'
-  | 'image___createdAt'
-  | 'image___updatedAt'
-  | 'image___file___url'
-  | 'image___file___details___size'
-  | 'image___file___fileName'
-  | 'image___file___contentType'
-  | 'image___title'
-  | 'image___description'
-  | 'image___node_locale'
-  | 'image___sys___type'
-  | 'image___sys___revision'
-  | 'image___fixed___base64'
-  | 'image___fixed___tracedSVG'
-  | 'image___fixed___aspectRatio'
-  | 'image___fixed___width'
-  | 'image___fixed___height'
-  | 'image___fixed___src'
-  | 'image___fixed___srcSet'
-  | 'image___fixed___srcWebp'
-  | 'image___fixed___srcSetWebp'
-  | 'image___resolutions___base64'
-  | 'image___resolutions___tracedSVG'
-  | 'image___resolutions___aspectRatio'
-  | 'image___resolutions___width'
-  | 'image___resolutions___height'
-  | 'image___resolutions___src'
-  | 'image___resolutions___srcSet'
-  | 'image___resolutions___srcWebp'
-  | 'image___resolutions___srcSetWebp'
-  | 'image___fluid___base64'
-  | 'image___fluid___tracedSVG'
-  | 'image___fluid___aspectRatio'
-  | 'image___fluid___src'
-  | 'image___fluid___srcSet'
-  | 'image___fluid___srcWebp'
-  | 'image___fluid___srcSetWebp'
-  | 'image___fluid___sizes'
-  | 'image___sizes___base64'
-  | 'image___sizes___tracedSVG'
-  | 'image___sizes___aspectRatio'
-  | 'image___sizes___src'
-  | 'image___sizes___srcSet'
-  | 'image___sizes___srcWebp'
-  | 'image___sizes___srcSetWebp'
-  | 'image___sizes___sizes'
-  | 'image___resize___base64'
-  | 'image___resize___tracedSVG'
-  | 'image___resize___src'
-  | 'image___resize___width'
-  | 'image___resize___height'
-  | 'image___resize___aspectRatio'
-  | 'description___id'
-  | 'description___parent___id'
-  | 'description___parent___parent___id'
-  | 'description___parent___parent___children'
-  | 'description___parent___children'
-  | 'description___parent___children___id'
-  | 'description___parent___children___children'
-  | 'description___parent___internal___content'
-  | 'description___parent___internal___contentDigest'
-  | 'description___parent___internal___description'
-  | 'description___parent___internal___fieldOwners'
-  | 'description___parent___internal___ignoreType'
-  | 'description___parent___internal___mediaType'
-  | 'description___parent___internal___owner'
-  | 'description___parent___internal___type'
-  | 'description___children'
-  | 'description___children___id'
-  | 'description___children___parent___id'
-  | 'description___children___parent___children'
-  | 'description___children___children'
-  | 'description___children___children___id'
-  | 'description___children___children___children'
-  | 'description___children___internal___content'
-  | 'description___children___internal___contentDigest'
-  | 'description___children___internal___description'
-  | 'description___children___internal___fieldOwners'
-  | 'description___children___internal___ignoreType'
-  | 'description___children___internal___mediaType'
-  | 'description___children___internal___owner'
-  | 'description___children___internal___type'
-  | 'description___internal___content'
-  | 'description___internal___contentDigest'
-  | 'description___internal___description'
-  | 'description___internal___fieldOwners'
-  | 'description___internal___ignoreType'
-  | 'description___internal___mediaType'
-  | 'description___internal___owner'
-  | 'description___internal___type'
-  | 'description___description'
-  | 'description___sys___type'
-  | 'description___childrenMarkdownRemark'
-  | 'description___childrenMarkdownRemark___id'
-  | 'description___childrenMarkdownRemark___frontmatter___title'
-  | 'description___childrenMarkdownRemark___excerpt'
-  | 'description___childrenMarkdownRemark___rawMarkdownBody'
-  | 'description___childrenMarkdownRemark___html'
-  | 'description___childrenMarkdownRemark___htmlAst'
-  | 'description___childrenMarkdownRemark___excerptAst'
-  | 'description___childrenMarkdownRemark___headings'
-  | 'description___childrenMarkdownRemark___headings___id'
-  | 'description___childrenMarkdownRemark___headings___value'
-  | 'description___childrenMarkdownRemark___headings___depth'
-  | 'description___childrenMarkdownRemark___timeToRead'
-  | 'description___childrenMarkdownRemark___tableOfContents'
-  | 'description___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'description___childrenMarkdownRemark___wordCount___sentences'
-  | 'description___childrenMarkdownRemark___wordCount___words'
-  | 'description___childrenMarkdownRemark___parent___id'
-  | 'description___childrenMarkdownRemark___parent___children'
-  | 'description___childrenMarkdownRemark___children'
-  | 'description___childrenMarkdownRemark___children___id'
-  | 'description___childrenMarkdownRemark___children___children'
-  | 'description___childrenMarkdownRemark___internal___content'
-  | 'description___childrenMarkdownRemark___internal___contentDigest'
-  | 'description___childrenMarkdownRemark___internal___description'
-  | 'description___childrenMarkdownRemark___internal___fieldOwners'
-  | 'description___childrenMarkdownRemark___internal___ignoreType'
-  | 'description___childrenMarkdownRemark___internal___mediaType'
-  | 'description___childrenMarkdownRemark___internal___owner'
-  | 'description___childrenMarkdownRemark___internal___type'
-  | 'description___childMarkdownRemark___id'
-  | 'description___childMarkdownRemark___frontmatter___title'
-  | 'description___childMarkdownRemark___excerpt'
-  | 'description___childMarkdownRemark___rawMarkdownBody'
-  | 'description___childMarkdownRemark___html'
-  | 'description___childMarkdownRemark___htmlAst'
-  | 'description___childMarkdownRemark___excerptAst'
-  | 'description___childMarkdownRemark___headings'
-  | 'description___childMarkdownRemark___headings___id'
-  | 'description___childMarkdownRemark___headings___value'
-  | 'description___childMarkdownRemark___headings___depth'
-  | 'description___childMarkdownRemark___timeToRead'
-  | 'description___childMarkdownRemark___tableOfContents'
-  | 'description___childMarkdownRemark___wordCount___paragraphs'
-  | 'description___childMarkdownRemark___wordCount___sentences'
-  | 'description___childMarkdownRemark___wordCount___words'
-  | 'description___childMarkdownRemark___parent___id'
-  | 'description___childMarkdownRemark___parent___children'
-  | 'description___childMarkdownRemark___children'
-  | 'description___childMarkdownRemark___children___id'
-  | 'description___childMarkdownRemark___children___children'
-  | 'description___childMarkdownRemark___internal___content'
-  | 'description___childMarkdownRemark___internal___contentDigest'
-  | 'description___childMarkdownRemark___internal___description'
-  | 'description___childMarkdownRemark___internal___fieldOwners'
-  | 'description___childMarkdownRemark___internal___ignoreType'
-  | 'description___childMarkdownRemark___internal___mediaType'
-  | 'description___childMarkdownRemark___internal___owner'
-  | 'description___childMarkdownRemark___internal___type'
-  | 'body___id'
-  | 'body___parent___id'
-  | 'body___parent___parent___id'
-  | 'body___parent___parent___children'
-  | 'body___parent___children'
-  | 'body___parent___children___id'
-  | 'body___parent___children___children'
-  | 'body___parent___internal___content'
-  | 'body___parent___internal___contentDigest'
-  | 'body___parent___internal___description'
-  | 'body___parent___internal___fieldOwners'
-  | 'body___parent___internal___ignoreType'
-  | 'body___parent___internal___mediaType'
-  | 'body___parent___internal___owner'
-  | 'body___parent___internal___type'
-  | 'body___children'
-  | 'body___children___id'
-  | 'body___children___parent___id'
-  | 'body___children___parent___children'
-  | 'body___children___children'
-  | 'body___children___children___id'
-  | 'body___children___children___children'
-  | 'body___children___internal___content'
-  | 'body___children___internal___contentDigest'
-  | 'body___children___internal___description'
-  | 'body___children___internal___fieldOwners'
-  | 'body___children___internal___ignoreType'
-  | 'body___children___internal___mediaType'
-  | 'body___children___internal___owner'
-  | 'body___children___internal___type'
-  | 'body___internal___content'
-  | 'body___internal___contentDigest'
-  | 'body___internal___description'
-  | 'body___internal___fieldOwners'
-  | 'body___internal___ignoreType'
-  | 'body___internal___mediaType'
-  | 'body___internal___owner'
-  | 'body___internal___type'
-  | 'body___body'
-  | 'body___sys___type'
-  | 'body___childrenMarkdownRemark'
-  | 'body___childrenMarkdownRemark___id'
-  | 'body___childrenMarkdownRemark___frontmatter___title'
-  | 'body___childrenMarkdownRemark___excerpt'
-  | 'body___childrenMarkdownRemark___rawMarkdownBody'
-  | 'body___childrenMarkdownRemark___html'
-  | 'body___childrenMarkdownRemark___htmlAst'
-  | 'body___childrenMarkdownRemark___excerptAst'
-  | 'body___childrenMarkdownRemark___headings'
-  | 'body___childrenMarkdownRemark___headings___id'
-  | 'body___childrenMarkdownRemark___headings___value'
-  | 'body___childrenMarkdownRemark___headings___depth'
-  | 'body___childrenMarkdownRemark___timeToRead'
-  | 'body___childrenMarkdownRemark___tableOfContents'
-  | 'body___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'body___childrenMarkdownRemark___wordCount___sentences'
-  | 'body___childrenMarkdownRemark___wordCount___words'
-  | 'body___childrenMarkdownRemark___parent___id'
-  | 'body___childrenMarkdownRemark___parent___children'
-  | 'body___childrenMarkdownRemark___children'
-  | 'body___childrenMarkdownRemark___children___id'
-  | 'body___childrenMarkdownRemark___children___children'
-  | 'body___childrenMarkdownRemark___internal___content'
-  | 'body___childrenMarkdownRemark___internal___contentDigest'
-  | 'body___childrenMarkdownRemark___internal___description'
-  | 'body___childrenMarkdownRemark___internal___fieldOwners'
-  | 'body___childrenMarkdownRemark___internal___ignoreType'
-  | 'body___childrenMarkdownRemark___internal___mediaType'
-  | 'body___childrenMarkdownRemark___internal___owner'
-  | 'body___childrenMarkdownRemark___internal___type'
-  | 'body___childMarkdownRemark___id'
-  | 'body___childMarkdownRemark___frontmatter___title'
-  | 'body___childMarkdownRemark___excerpt'
-  | 'body___childMarkdownRemark___rawMarkdownBody'
-  | 'body___childMarkdownRemark___html'
-  | 'body___childMarkdownRemark___htmlAst'
-  | 'body___childMarkdownRemark___excerptAst'
-  | 'body___childMarkdownRemark___headings'
-  | 'body___childMarkdownRemark___headings___id'
-  | 'body___childMarkdownRemark___headings___value'
-  | 'body___childMarkdownRemark___headings___depth'
-  | 'body___childMarkdownRemark___timeToRead'
-  | 'body___childMarkdownRemark___tableOfContents'
-  | 'body___childMarkdownRemark___wordCount___paragraphs'
-  | 'body___childMarkdownRemark___wordCount___sentences'
-  | 'body___childMarkdownRemark___wordCount___words'
-  | 'body___childMarkdownRemark___parent___id'
-  | 'body___childMarkdownRemark___parent___children'
-  | 'body___childMarkdownRemark___children'
-  | 'body___childMarkdownRemark___children___id'
-  | 'body___childMarkdownRemark___children___children'
-  | 'body___childMarkdownRemark___internal___content'
-  | 'body___childMarkdownRemark___internal___contentDigest'
-  | 'body___childMarkdownRemark___internal___description'
-  | 'body___childMarkdownRemark___internal___fieldOwners'
-  | 'body___childMarkdownRemark___internal___ignoreType'
-  | 'body___childMarkdownRemark___internal___mediaType'
-  | 'body___childMarkdownRemark___internal___owner'
-  | 'body___childMarkdownRemark___internal___type'
-  | 'spaceId'
-  | 'contentful_id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'sys___type'
-  | 'sys___revision'
-  | 'sys___contentType___sys___type'
-  | 'sys___contentType___sys___linkType'
-  | 'sys___contentType___sys___id'
-  | 'sys___contentType___sys___contentful_id'
-  | 'node_locale'
-  | 'childrenContentfulTooltipBodyTextNode'
-  | 'childrenContentfulTooltipBodyTextNode___id'
-  | 'childrenContentfulTooltipBodyTextNode___parent___id'
-  | 'childrenContentfulTooltipBodyTextNode___parent___parent___id'
-  | 'childrenContentfulTooltipBodyTextNode___parent___parent___children'
-  | 'childrenContentfulTooltipBodyTextNode___parent___children'
-  | 'childrenContentfulTooltipBodyTextNode___parent___children___id'
-  | 'childrenContentfulTooltipBodyTextNode___parent___children___children'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___content'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___contentDigest'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___description'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___fieldOwners'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___ignoreType'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___mediaType'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___owner'
-  | 'childrenContentfulTooltipBodyTextNode___parent___internal___type'
-  | 'childrenContentfulTooltipBodyTextNode___children'
-  | 'childrenContentfulTooltipBodyTextNode___children___id'
-  | 'childrenContentfulTooltipBodyTextNode___children___parent___id'
-  | 'childrenContentfulTooltipBodyTextNode___children___parent___children'
-  | 'childrenContentfulTooltipBodyTextNode___children___children'
-  | 'childrenContentfulTooltipBodyTextNode___children___children___id'
-  | 'childrenContentfulTooltipBodyTextNode___children___children___children'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___content'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___contentDigest'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___description'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___fieldOwners'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___ignoreType'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___mediaType'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___owner'
-  | 'childrenContentfulTooltipBodyTextNode___children___internal___type'
-  | 'childrenContentfulTooltipBodyTextNode___internal___content'
-  | 'childrenContentfulTooltipBodyTextNode___internal___contentDigest'
-  | 'childrenContentfulTooltipBodyTextNode___internal___description'
-  | 'childrenContentfulTooltipBodyTextNode___internal___fieldOwners'
-  | 'childrenContentfulTooltipBodyTextNode___internal___ignoreType'
-  | 'childrenContentfulTooltipBodyTextNode___internal___mediaType'
-  | 'childrenContentfulTooltipBodyTextNode___internal___owner'
-  | 'childrenContentfulTooltipBodyTextNode___internal___type'
-  | 'childrenContentfulTooltipBodyTextNode___body'
-  | 'childrenContentfulTooltipBodyTextNode___sys___type'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___id'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___frontmatter___title'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___excerpt'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___rawMarkdownBody'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___html'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___htmlAst'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___excerptAst'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___id'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___value'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___depth'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___timeToRead'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___tableOfContents'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___sentences'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___words'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___parent___id'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___parent___children'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___children'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___children___id'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___children___children'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___content'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___contentDigest'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___description'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___fieldOwners'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___ignoreType'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___mediaType'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___owner'
-  | 'childrenContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___type'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___id'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___frontmatter___title'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___excerpt'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___rawMarkdownBody'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___html'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___htmlAst'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___excerptAst'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___headings'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___headings___id'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___headings___value'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___headings___depth'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___timeToRead'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___tableOfContents'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___paragraphs'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___sentences'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___words'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___parent___id'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___parent___children'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___children'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___children___id'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___children___children'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___content'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___contentDigest'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___description'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___fieldOwners'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___ignoreType'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___mediaType'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___owner'
-  | 'childrenContentfulTooltipBodyTextNode___childMarkdownRemark___internal___type'
-  | 'childContentfulTooltipBodyTextNode___id'
-  | 'childContentfulTooltipBodyTextNode___parent___id'
-  | 'childContentfulTooltipBodyTextNode___parent___parent___id'
-  | 'childContentfulTooltipBodyTextNode___parent___parent___children'
-  | 'childContentfulTooltipBodyTextNode___parent___children'
-  | 'childContentfulTooltipBodyTextNode___parent___children___id'
-  | 'childContentfulTooltipBodyTextNode___parent___children___children'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___content'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___contentDigest'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___description'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___fieldOwners'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___ignoreType'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___mediaType'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___owner'
-  | 'childContentfulTooltipBodyTextNode___parent___internal___type'
-  | 'childContentfulTooltipBodyTextNode___children'
-  | 'childContentfulTooltipBodyTextNode___children___id'
-  | 'childContentfulTooltipBodyTextNode___children___parent___id'
-  | 'childContentfulTooltipBodyTextNode___children___parent___children'
-  | 'childContentfulTooltipBodyTextNode___children___children'
-  | 'childContentfulTooltipBodyTextNode___children___children___id'
-  | 'childContentfulTooltipBodyTextNode___children___children___children'
-  | 'childContentfulTooltipBodyTextNode___children___internal___content'
-  | 'childContentfulTooltipBodyTextNode___children___internal___contentDigest'
-  | 'childContentfulTooltipBodyTextNode___children___internal___description'
-  | 'childContentfulTooltipBodyTextNode___children___internal___fieldOwners'
-  | 'childContentfulTooltipBodyTextNode___children___internal___ignoreType'
-  | 'childContentfulTooltipBodyTextNode___children___internal___mediaType'
-  | 'childContentfulTooltipBodyTextNode___children___internal___owner'
-  | 'childContentfulTooltipBodyTextNode___children___internal___type'
-  | 'childContentfulTooltipBodyTextNode___internal___content'
-  | 'childContentfulTooltipBodyTextNode___internal___contentDigest'
-  | 'childContentfulTooltipBodyTextNode___internal___description'
-  | 'childContentfulTooltipBodyTextNode___internal___fieldOwners'
-  | 'childContentfulTooltipBodyTextNode___internal___ignoreType'
-  | 'childContentfulTooltipBodyTextNode___internal___mediaType'
-  | 'childContentfulTooltipBodyTextNode___internal___owner'
-  | 'childContentfulTooltipBodyTextNode___internal___type'
-  | 'childContentfulTooltipBodyTextNode___body'
-  | 'childContentfulTooltipBodyTextNode___sys___type'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___id'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___frontmatter___title'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___excerpt'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___rawMarkdownBody'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___html'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___htmlAst'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___excerptAst'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___id'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___value'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___headings___depth'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___timeToRead'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___tableOfContents'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___sentences'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___wordCount___words'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___parent___id'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___parent___children'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___children'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___children___id'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___children___children'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___content'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___contentDigest'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___description'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___fieldOwners'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___ignoreType'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___mediaType'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___owner'
-  | 'childContentfulTooltipBodyTextNode___childrenMarkdownRemark___internal___type'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___id'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___frontmatter___title'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___excerpt'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___rawMarkdownBody'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___html'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___htmlAst'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___excerptAst'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___headings'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___headings___id'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___headings___value'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___headings___depth'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___timeToRead'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___tableOfContents'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___paragraphs'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___sentences'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___wordCount___words'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___parent___id'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___parent___children'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___children'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___children___id'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___children___children'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___content'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___contentDigest'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___description'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___fieldOwners'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___ignoreType'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___mediaType'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___owner'
-  | 'childContentfulTooltipBodyTextNode___childMarkdownRemark___internal___type'
-  | 'childrenContentfulTooltipDescriptionTextNode'
-  | 'childrenContentfulTooltipDescriptionTextNode___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___parent___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___parent___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___children___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___children___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___content'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___contentDigest'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___fieldOwners'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___ignoreType'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___mediaType'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___owner'
-  | 'childrenContentfulTooltipDescriptionTextNode___parent___internal___type'
-  | 'childrenContentfulTooltipDescriptionTextNode___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___parent___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___parent___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___children___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___children___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___content'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___contentDigest'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___fieldOwners'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___ignoreType'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___mediaType'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___owner'
-  | 'childrenContentfulTooltipDescriptionTextNode___children___internal___type'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___content'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___contentDigest'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___fieldOwners'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___ignoreType'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___mediaType'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___owner'
-  | 'childrenContentfulTooltipDescriptionTextNode___internal___type'
-  | 'childrenContentfulTooltipDescriptionTextNode___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___sys___type'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___frontmatter___title'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___excerpt'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___html'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___htmlAst'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___excerptAst'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___value'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___depth'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___timeToRead'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___tableOfContents'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___sentences'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___words'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___parent___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___parent___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___content'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___contentDigest'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___fieldOwners'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___ignoreType'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___mediaType'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___owner'
-  | 'childrenContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___type'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___frontmatter___title'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___excerpt'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___rawMarkdownBody'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___html'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___htmlAst'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___excerptAst'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___value'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___depth'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___timeToRead'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___tableOfContents'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___paragraphs'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___sentences'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___words'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___parent___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___parent___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___children___id'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___children___children'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___content'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___contentDigest'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___description'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___fieldOwners'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___ignoreType'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___mediaType'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___owner'
-  | 'childrenContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___type'
-  | 'childContentfulTooltipDescriptionTextNode___id'
-  | 'childContentfulTooltipDescriptionTextNode___parent___id'
-  | 'childContentfulTooltipDescriptionTextNode___parent___parent___id'
-  | 'childContentfulTooltipDescriptionTextNode___parent___parent___children'
-  | 'childContentfulTooltipDescriptionTextNode___parent___children'
-  | 'childContentfulTooltipDescriptionTextNode___parent___children___id'
-  | 'childContentfulTooltipDescriptionTextNode___parent___children___children'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___content'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___contentDigest'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___description'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___fieldOwners'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___ignoreType'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___mediaType'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___owner'
-  | 'childContentfulTooltipDescriptionTextNode___parent___internal___type'
-  | 'childContentfulTooltipDescriptionTextNode___children'
-  | 'childContentfulTooltipDescriptionTextNode___children___id'
-  | 'childContentfulTooltipDescriptionTextNode___children___parent___id'
-  | 'childContentfulTooltipDescriptionTextNode___children___parent___children'
-  | 'childContentfulTooltipDescriptionTextNode___children___children'
-  | 'childContentfulTooltipDescriptionTextNode___children___children___id'
-  | 'childContentfulTooltipDescriptionTextNode___children___children___children'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___content'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___contentDigest'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___description'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___fieldOwners'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___ignoreType'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___mediaType'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___owner'
-  | 'childContentfulTooltipDescriptionTextNode___children___internal___type'
-  | 'childContentfulTooltipDescriptionTextNode___internal___content'
-  | 'childContentfulTooltipDescriptionTextNode___internal___contentDigest'
-  | 'childContentfulTooltipDescriptionTextNode___internal___description'
-  | 'childContentfulTooltipDescriptionTextNode___internal___fieldOwners'
-  | 'childContentfulTooltipDescriptionTextNode___internal___ignoreType'
-  | 'childContentfulTooltipDescriptionTextNode___internal___mediaType'
-  | 'childContentfulTooltipDescriptionTextNode___internal___owner'
-  | 'childContentfulTooltipDescriptionTextNode___internal___type'
-  | 'childContentfulTooltipDescriptionTextNode___description'
-  | 'childContentfulTooltipDescriptionTextNode___sys___type'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___id'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___frontmatter___title'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___excerpt'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___rawMarkdownBody'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___html'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___htmlAst'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___excerptAst'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___id'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___value'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___headings___depth'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___timeToRead'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___tableOfContents'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___paragraphs'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___sentences'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___wordCount___words'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___parent___id'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___parent___children'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children___id'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___children___children'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___content'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___contentDigest'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___description'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___fieldOwners'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___ignoreType'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___mediaType'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___owner'
-  | 'childContentfulTooltipDescriptionTextNode___childrenMarkdownRemark___internal___type'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___id'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___frontmatter___title'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___excerpt'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___rawMarkdownBody'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___html'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___htmlAst'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___excerptAst'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___id'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___value'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___headings___depth'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___timeToRead'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___tableOfContents'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___paragraphs'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___sentences'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___wordCount___words'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___parent___id'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___parent___children'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___children'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___children___id'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___children___children'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___content'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___contentDigest'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___description'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___fieldOwners'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___ignoreType'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___mediaType'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___owner'
-  | 'childContentfulTooltipDescriptionTextNode___childMarkdownRemark___internal___type';
-
-export type ContentfulTooltipFilterInput = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  tags?: Maybe<StringQueryOperatorInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  image?: Maybe<ContentfulAssetFilterListInput>;
-  description?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
-  body?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipSysFilterInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  childrenContentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNodeFilterListInput>;
-  childContentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
-  childrenContentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNodeFilterListInput>;
-  childContentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
-};
-
-export type ContentfulTooltipGroupConnection = {
-  totalCount: Scalars['Int'];
-  edges: Array<ContentfulTooltipEdge>;
-  nodes: Array<ContentfulTooltip>;
-  pageInfo: PageInfo;
-  field: Scalars['String'];
-  fieldValue?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipSortInput = {
-  fields?: Maybe<Array<Maybe<ContentfulTooltipFieldsEnum>>>;
-  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
-};
-
-export type ContentfulTooltipSys = {
-  type?: Maybe<Scalars['String']>;
-  revision?: Maybe<Scalars['Int']>;
-  contentType?: Maybe<ContentfulTooltipSysContentType>;
-};
-
-export type ContentfulTooltipSysContentType = {
-  sys?: Maybe<ContentfulTooltipSysContentTypeSys>;
-};
-
-export type ContentfulTooltipSysContentTypeFilterInput = {
-  sys?: Maybe<ContentfulTooltipSysContentTypeSysFilterInput>;
-};
-
-export type ContentfulTooltipSysContentTypeSys = {
-  type?: Maybe<Scalars['String']>;
-  linkType?: Maybe<Scalars['String']>;
-  id?: Maybe<Scalars['String']>;
-  contentful_id?: Maybe<Scalars['String']>;
-};
-
-export type ContentfulTooltipSysContentTypeSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  linkType?: Maybe<StringQueryOperatorInput>;
-  id?: Maybe<StringQueryOperatorInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-};
-
-export type ContentfulTooltipSysFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  revision?: Maybe<IntQueryOperatorInput>;
-  contentType?: Maybe<ContentfulTooltipSysContentTypeFilterInput>;
 };
 
 
@@ -3934,12 +3959,12 @@ export type Query = {
   allImageSharp: ImageSharpConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
-  contentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNode>;
-  allContentfulTooltipBodyTextNode: ContentfulTooltipBodyTextNodeConnection;
-  contentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNode>;
-  allContentfulTooltipDescriptionTextNode: ContentfulTooltipDescriptionTextNodeConnection;
-  contentfulTooltip?: Maybe<ContentfulTooltip>;
-  allContentfulTooltip: ContentfulTooltipConnection;
+  contentfulPage?: Maybe<ContentfulPage>;
+  allContentfulPage: ContentfulPageConnection;
+  contentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
+  allContentfulBlockMrkTextNode: ContentfulBlockMrkTextNodeConnection;
+  contentfulBlock?: Maybe<ContentfulBlock>;
+  allContentfulBlock: ContentfulBlockConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
   allContentfulContentType: ContentfulContentTypeConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -4177,74 +4202,78 @@ export type QueryAllContentfulAssetArgs = {
 };
 
 
-export type QueryContentfulTooltipBodyTextNodeArgs = {
+export type QueryContentfulPageArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  body?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipBodyTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-export type QueryAllContentfulTooltipBodyTextNodeArgs = {
-  filter?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
-  sort?: Maybe<ContentfulTooltipBodyTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulTooltipDescriptionTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
+  title?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipDescriptionTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+  lang?: Maybe<StringQueryOperatorInput>;
+  tags?: Maybe<StringQueryOperatorInput>;
+  blocks?: Maybe<ContentfulBlockFilterListInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  sys?: Maybe<ContentfulPageSysFilterInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
 };
 
 
-export type QueryAllContentfulTooltipDescriptionTextNodeArgs = {
-  filter?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
-  sort?: Maybe<ContentfulTooltipDescriptionTextNodeSortInput>;
+export type QueryAllContentfulPageArgs = {
+  filter?: Maybe<ContentfulPageFilterInput>;
+  sort?: Maybe<ContentfulPageSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
 
 
-export type QueryContentfulTooltipArgs = {
+export type QueryContentfulBlockMrkTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  mrk?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+export type QueryAllContentfulBlockMrkTextNodeArgs = {
+  filter?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+  sort?: Maybe<ContentfulBlockMrkTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryContentfulBlockArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
-  tags?: Maybe<StringQueryOperatorInput>;
-  lang?: Maybe<StringQueryOperatorInput>;
-  image?: Maybe<ContentfulAssetFilterListInput>;
-  description?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
-  body?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
+  className?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulAssetFilterInput>;
+  page?: Maybe<ContentfulPageFilterListInput>;
+  mrk?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
   contentful_id?: Maybe<StringQueryOperatorInput>;
   createdAt?: Maybe<DateQueryOperatorInput>;
   updatedAt?: Maybe<DateQueryOperatorInput>;
-  sys?: Maybe<ContentfulTooltipSysFilterInput>;
+  sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
-  childrenContentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNodeFilterListInput>;
-  childContentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNodeFilterInput>;
-  childrenContentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNodeFilterListInput>;
-  childContentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
+  childrenContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterListInput>;
+  childContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
 };
 
 
-export type QueryAllContentfulTooltipArgs = {
-  filter?: Maybe<ContentfulTooltipFilterInput>;
-  sort?: Maybe<ContentfulTooltipSortInput>;
+export type QueryAllContentfulBlockArgs = {
+  filter?: Maybe<ContentfulBlockFilterInput>;
+  sort?: Maybe<ContentfulBlockSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -5308,16 +5337,19 @@ export type WebPOptions = {
 export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type HomeQueryQuery = { allContentfulTooltip: { edges: Array<{ node: Pick<ContentfulTooltip, 'slug' | 'title'> }> } };
+export type HomeQueryQuery = { allContentfulPage: { edges: Array<{ node: Pick<ContentfulPage, 'slug' | 'title'> }> } };
 
 export type TooltipSlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
 
 
-export type TooltipSlugQuery = { contentfulTooltip?: Maybe<(
-    Pick<ContentfulTooltip, 'title' | 'tags' | 'lang'>
-    & { body?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }>, description?: Maybe<Pick<ContentfulTooltipDescriptionTextNode, 'description'>>, image?: Maybe<Array<Maybe<{ fluid?: Maybe<Pick<ContentfulFluid, 'tracedSVG'>> }>>> }
+export type TooltipSlugQuery = { contentfulPage?: Maybe<(
+    Pick<ContentfulPage, 'lang' | 'slug' | 'tags' | 'title' | 'description'>
+    & { blocks?: Maybe<Array<Maybe<{ mrk?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }>, image?: Maybe<(
+        Pick<ContentfulAsset, 'title'>
+        & { fluid?: Maybe<GatsbyContentfulFluidFragment> }
+      )> }>>> }
   )> };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;

@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import { ArticleList, Title } from '../components/Styled'
 const RootIndex = () => {
   const data = useStaticQuery(graphql` query HomeQuery {
-    allContentfulTooltip {
+    allContentfulPage{
       edges {
         node {
           slug
@@ -23,7 +23,7 @@ const RootIndex = () => {
       <div className="wrapper">
         <Title>Recent articles</Title>
         <ArticleList>
-          { data.allContentfulTooltip.edges.map((item: any) => <li key={item.node.slug}>
+          { data.allContentfulPage.edges.map((item: any) => <li key={item.node.slug}>
               <Link to={`/tooltip/${item.node.slug}`}>{item.node.title}</Link>
             </li>
             )}
