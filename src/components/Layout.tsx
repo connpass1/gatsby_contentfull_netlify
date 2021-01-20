@@ -2,8 +2,7 @@ import React  from 'react'
 import { Link } from 'gatsby'
 import { GlobalCSS, Navigation } from './Styled'
 
-
-  const Template: React.FC = (props) =>{
+  const Layout: React.FC = (props) =>{
   
     return (
       <div className="wrapper">
@@ -21,7 +20,6 @@ import { GlobalCSS, Navigation } from './Styled'
         {props.children}
       </div>
     )
- 
 }
 
-export default Template
+export default Layout

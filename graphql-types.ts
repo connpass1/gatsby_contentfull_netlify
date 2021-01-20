@@ -3932,12 +3932,12 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  contentfulAsset?: Maybe<ContentfulAsset>;
+  allContentfulAsset: ContentfulAssetConnection;
   contentfulTooltipBodyTextNode?: Maybe<ContentfulTooltipBodyTextNode>;
   allContentfulTooltipBodyTextNode: ContentfulTooltipBodyTextNodeConnection;
   contentfulTooltipDescriptionTextNode?: Maybe<ContentfulTooltipDescriptionTextNode>;
   allContentfulTooltipDescriptionTextNode: ContentfulTooltipDescriptionTextNodeConnection;
-  contentfulAsset?: Maybe<ContentfulAsset>;
-  allContentfulAsset: ContentfulAssetConnection;
   contentfulTooltip?: Maybe<ContentfulTooltip>;
   allContentfulTooltip: ContentfulTooltipConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -4147,6 +4147,36 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryContentfulAssetArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  contentful_id?: Maybe<StringQueryOperatorInput>;
+  spaceId?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  file?: Maybe<ContentfulAssetFileFilterInput>;
+  title?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
+  node_locale?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulAssetSysFilterInput>;
+  fixed?: Maybe<ContentfulFixedFilterInput>;
+  resolutions?: Maybe<ContentfulResolutionsFilterInput>;
+  fluid?: Maybe<ContentfulFluidFilterInput>;
+  sizes?: Maybe<ContentfulSizesFilterInput>;
+  resize?: Maybe<ContentfulResizeFilterInput>;
+};
+
+
+export type QueryAllContentfulAssetArgs = {
+  filter?: Maybe<ContentfulAssetFilterInput>;
+  sort?: Maybe<ContentfulAssetSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulTooltipBodyTextNodeArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4182,36 +4212,6 @@ export type QueryContentfulTooltipDescriptionTextNodeArgs = {
 export type QueryAllContentfulTooltipDescriptionTextNodeArgs = {
   filter?: Maybe<ContentfulTooltipDescriptionTextNodeFilterInput>;
   sort?: Maybe<ContentfulTooltipDescriptionTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryContentfulAssetArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  contentful_id?: Maybe<StringQueryOperatorInput>;
-  spaceId?: Maybe<StringQueryOperatorInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  file?: Maybe<ContentfulAssetFileFilterInput>;
-  title?: Maybe<StringQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
-  node_locale?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulAssetSysFilterInput>;
-  fixed?: Maybe<ContentfulFixedFilterInput>;
-  resolutions?: Maybe<ContentfulResolutionsFilterInput>;
-  fluid?: Maybe<ContentfulFluidFilterInput>;
-  sizes?: Maybe<ContentfulSizesFilterInput>;
-  resize?: Maybe<ContentfulResizeFilterInput>;
-};
-
-
-export type QueryAllContentfulAssetArgs = {
-  filter?: Maybe<ContentfulAssetFilterInput>;
-  sort?: Maybe<ContentfulAssetSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -5304,6 +5304,11 @@ export type TransformOptions = {
 export type WebPOptions = {
   quality?: Maybe<Scalars['Int']>;
 };
+
+export type HomeQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HomeQueryQuery = { allContentfulTooltip: { edges: Array<{ node: Pick<ContentfulTooltip, 'slug' | 'title'> }> } };
 
 export type TooltipSlugQueryVariables = Exact<{
   slug: Scalars['String'];
