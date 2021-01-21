@@ -10,6 +10,7 @@ class PageLayout extends React.Component {
   render() {
     const page = get(this.props, 'data.contentfulPage')
     const { title, description, lang } = page;
+    
     // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <Layout seo={ {title:title, description:description, lang:lang  }}>
@@ -21,10 +22,12 @@ class PageLayout extends React.Component {
           {block.image?.fluid && <Img
             fluid={block.image.fluid}
           />}
-          <MarkDown dangerouslySetInnerHTML={{
-                __html:block.mrk.childMarkdownRemark.html,
+          {block.mrk?.childMarkdownRemark?.html
+            
+            &&< MarkDown dangerouslySetInnerHTML={{
+                __html:block.mrk?.childMarkdownRemark?.html,
         }}
-          />
+          />}
           </div>
           )}
             <TagList>{page.tags.map((tag: string, key: string | number ) => <li key={key}>{tag }</li>)}</TagList>         
