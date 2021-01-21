@@ -404,7 +404,6 @@ export type ContentfulBlock = Node & {
   internal: Internal;
   title?: Maybe<Scalars['String']>;
   className?: Maybe<Scalars['String']>;
-  image?: Maybe<ContentfulAsset>;
   page?: Maybe<Array<Maybe<ContentfulPage>>>;
   mrk?: Maybe<ContentfulBlockMrkTextNode>;
   spaceId?: Maybe<Scalars['String']>;
@@ -413,6 +412,7 @@ export type ContentfulBlock = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   sys?: Maybe<ContentfulBlockSys>;
   node_locale?: Maybe<Scalars['String']>;
+  image?: Maybe<ContentfulAsset>;
   /** Returns all children nodes filtered by type contentfulBlockMrkTextNode */
   childrenContentfulBlockMrkTextNode?: Maybe<Array<Maybe<ContentfulBlockMrkTextNode>>>;
   /**
@@ -554,97 +554,6 @@ export type ContentfulBlockFieldsEnum =
   | 'internal___type'
   | 'title'
   | 'className'
-  | 'image___id'
-  | 'image___parent___id'
-  | 'image___parent___parent___id'
-  | 'image___parent___parent___children'
-  | 'image___parent___children'
-  | 'image___parent___children___id'
-  | 'image___parent___children___children'
-  | 'image___parent___internal___content'
-  | 'image___parent___internal___contentDigest'
-  | 'image___parent___internal___description'
-  | 'image___parent___internal___fieldOwners'
-  | 'image___parent___internal___ignoreType'
-  | 'image___parent___internal___mediaType'
-  | 'image___parent___internal___owner'
-  | 'image___parent___internal___type'
-  | 'image___children'
-  | 'image___children___id'
-  | 'image___children___parent___id'
-  | 'image___children___parent___children'
-  | 'image___children___children'
-  | 'image___children___children___id'
-  | 'image___children___children___children'
-  | 'image___children___internal___content'
-  | 'image___children___internal___contentDigest'
-  | 'image___children___internal___description'
-  | 'image___children___internal___fieldOwners'
-  | 'image___children___internal___ignoreType'
-  | 'image___children___internal___mediaType'
-  | 'image___children___internal___owner'
-  | 'image___children___internal___type'
-  | 'image___internal___content'
-  | 'image___internal___contentDigest'
-  | 'image___internal___description'
-  | 'image___internal___fieldOwners'
-  | 'image___internal___ignoreType'
-  | 'image___internal___mediaType'
-  | 'image___internal___owner'
-  | 'image___internal___type'
-  | 'image___contentful_id'
-  | 'image___spaceId'
-  | 'image___createdAt'
-  | 'image___updatedAt'
-  | 'image___file___url'
-  | 'image___file___details___size'
-  | 'image___file___fileName'
-  | 'image___file___contentType'
-  | 'image___title'
-  | 'image___description'
-  | 'image___node_locale'
-  | 'image___sys___type'
-  | 'image___sys___revision'
-  | 'image___fixed___base64'
-  | 'image___fixed___tracedSVG'
-  | 'image___fixed___aspectRatio'
-  | 'image___fixed___width'
-  | 'image___fixed___height'
-  | 'image___fixed___src'
-  | 'image___fixed___srcSet'
-  | 'image___fixed___srcWebp'
-  | 'image___fixed___srcSetWebp'
-  | 'image___resolutions___base64'
-  | 'image___resolutions___tracedSVG'
-  | 'image___resolutions___aspectRatio'
-  | 'image___resolutions___width'
-  | 'image___resolutions___height'
-  | 'image___resolutions___src'
-  | 'image___resolutions___srcSet'
-  | 'image___resolutions___srcWebp'
-  | 'image___resolutions___srcSetWebp'
-  | 'image___fluid___base64'
-  | 'image___fluid___tracedSVG'
-  | 'image___fluid___aspectRatio'
-  | 'image___fluid___src'
-  | 'image___fluid___srcSet'
-  | 'image___fluid___srcWebp'
-  | 'image___fluid___srcSetWebp'
-  | 'image___fluid___sizes'
-  | 'image___sizes___base64'
-  | 'image___sizes___tracedSVG'
-  | 'image___sizes___aspectRatio'
-  | 'image___sizes___src'
-  | 'image___sizes___srcSet'
-  | 'image___sizes___srcWebp'
-  | 'image___sizes___srcSetWebp'
-  | 'image___sizes___sizes'
-  | 'image___resize___base64'
-  | 'image___resize___tracedSVG'
-  | 'image___resize___src'
-  | 'image___resize___width'
-  | 'image___resize___height'
-  | 'image___resize___aspectRatio'
   | 'page'
   | 'page___id'
   | 'page___parent___id'
@@ -706,15 +615,6 @@ export type ContentfulBlockFieldsEnum =
   | 'page___blocks___internal___type'
   | 'page___blocks___title'
   | 'page___blocks___className'
-  | 'page___blocks___image___id'
-  | 'page___blocks___image___children'
-  | 'page___blocks___image___contentful_id'
-  | 'page___blocks___image___spaceId'
-  | 'page___blocks___image___createdAt'
-  | 'page___blocks___image___updatedAt'
-  | 'page___blocks___image___title'
-  | 'page___blocks___image___description'
-  | 'page___blocks___image___node_locale'
   | 'page___blocks___page'
   | 'page___blocks___page___id'
   | 'page___blocks___page___children'
@@ -740,6 +640,15 @@ export type ContentfulBlockFieldsEnum =
   | 'page___blocks___sys___type'
   | 'page___blocks___sys___revision'
   | 'page___blocks___node_locale'
+  | 'page___blocks___image___id'
+  | 'page___blocks___image___children'
+  | 'page___blocks___image___contentful_id'
+  | 'page___blocks___image___spaceId'
+  | 'page___blocks___image___createdAt'
+  | 'page___blocks___image___updatedAt'
+  | 'page___blocks___image___title'
+  | 'page___blocks___image___description'
+  | 'page___blocks___image___node_locale'
   | 'page___blocks___childrenContentfulBlockMrkTextNode'
   | 'page___blocks___childrenContentfulBlockMrkTextNode___id'
   | 'page___blocks___childrenContentfulBlockMrkTextNode___children'
@@ -866,6 +775,97 @@ export type ContentfulBlockFieldsEnum =
   | 'sys___contentType___sys___id'
   | 'sys___contentType___sys___contentful_id'
   | 'node_locale'
+  | 'image___id'
+  | 'image___parent___id'
+  | 'image___parent___parent___id'
+  | 'image___parent___parent___children'
+  | 'image___parent___children'
+  | 'image___parent___children___id'
+  | 'image___parent___children___children'
+  | 'image___parent___internal___content'
+  | 'image___parent___internal___contentDigest'
+  | 'image___parent___internal___description'
+  | 'image___parent___internal___fieldOwners'
+  | 'image___parent___internal___ignoreType'
+  | 'image___parent___internal___mediaType'
+  | 'image___parent___internal___owner'
+  | 'image___parent___internal___type'
+  | 'image___children'
+  | 'image___children___id'
+  | 'image___children___parent___id'
+  | 'image___children___parent___children'
+  | 'image___children___children'
+  | 'image___children___children___id'
+  | 'image___children___children___children'
+  | 'image___children___internal___content'
+  | 'image___children___internal___contentDigest'
+  | 'image___children___internal___description'
+  | 'image___children___internal___fieldOwners'
+  | 'image___children___internal___ignoreType'
+  | 'image___children___internal___mediaType'
+  | 'image___children___internal___owner'
+  | 'image___children___internal___type'
+  | 'image___internal___content'
+  | 'image___internal___contentDigest'
+  | 'image___internal___description'
+  | 'image___internal___fieldOwners'
+  | 'image___internal___ignoreType'
+  | 'image___internal___mediaType'
+  | 'image___internal___owner'
+  | 'image___internal___type'
+  | 'image___contentful_id'
+  | 'image___spaceId'
+  | 'image___createdAt'
+  | 'image___updatedAt'
+  | 'image___file___url'
+  | 'image___file___details___size'
+  | 'image___file___fileName'
+  | 'image___file___contentType'
+  | 'image___title'
+  | 'image___description'
+  | 'image___node_locale'
+  | 'image___sys___type'
+  | 'image___sys___revision'
+  | 'image___fixed___base64'
+  | 'image___fixed___tracedSVG'
+  | 'image___fixed___aspectRatio'
+  | 'image___fixed___width'
+  | 'image___fixed___height'
+  | 'image___fixed___src'
+  | 'image___fixed___srcSet'
+  | 'image___fixed___srcWebp'
+  | 'image___fixed___srcSetWebp'
+  | 'image___resolutions___base64'
+  | 'image___resolutions___tracedSVG'
+  | 'image___resolutions___aspectRatio'
+  | 'image___resolutions___width'
+  | 'image___resolutions___height'
+  | 'image___resolutions___src'
+  | 'image___resolutions___srcSet'
+  | 'image___resolutions___srcWebp'
+  | 'image___resolutions___srcSetWebp'
+  | 'image___fluid___base64'
+  | 'image___fluid___tracedSVG'
+  | 'image___fluid___aspectRatio'
+  | 'image___fluid___src'
+  | 'image___fluid___srcSet'
+  | 'image___fluid___srcWebp'
+  | 'image___fluid___srcSetWebp'
+  | 'image___fluid___sizes'
+  | 'image___sizes___base64'
+  | 'image___sizes___tracedSVG'
+  | 'image___sizes___aspectRatio'
+  | 'image___sizes___src'
+  | 'image___sizes___srcSet'
+  | 'image___sizes___srcWebp'
+  | 'image___sizes___srcSetWebp'
+  | 'image___sizes___sizes'
+  | 'image___resize___base64'
+  | 'image___resize___tracedSVG'
+  | 'image___resize___src'
+  | 'image___resize___width'
+  | 'image___resize___height'
+  | 'image___resize___aspectRatio'
   | 'childrenContentfulBlockMrkTextNode'
   | 'childrenContentfulBlockMrkTextNode___id'
   | 'childrenContentfulBlockMrkTextNode___parent___id'
@@ -1073,7 +1073,6 @@ export type ContentfulBlockFilterInput = {
   internal?: Maybe<InternalFilterInput>;
   title?: Maybe<StringQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
-  image?: Maybe<ContentfulAssetFilterInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   mrk?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -1082,6 +1081,7 @@ export type ContentfulBlockFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulAssetFilterInput>;
   childrenContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterListInput>;
   childContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
 };
@@ -1835,72 +1835,6 @@ export type ContentfulPageFieldsEnum =
   | 'blocks___internal___type'
   | 'blocks___title'
   | 'blocks___className'
-  | 'blocks___image___id'
-  | 'blocks___image___parent___id'
-  | 'blocks___image___parent___children'
-  | 'blocks___image___children'
-  | 'blocks___image___children___id'
-  | 'blocks___image___children___children'
-  | 'blocks___image___internal___content'
-  | 'blocks___image___internal___contentDigest'
-  | 'blocks___image___internal___description'
-  | 'blocks___image___internal___fieldOwners'
-  | 'blocks___image___internal___ignoreType'
-  | 'blocks___image___internal___mediaType'
-  | 'blocks___image___internal___owner'
-  | 'blocks___image___internal___type'
-  | 'blocks___image___contentful_id'
-  | 'blocks___image___spaceId'
-  | 'blocks___image___createdAt'
-  | 'blocks___image___updatedAt'
-  | 'blocks___image___file___url'
-  | 'blocks___image___file___fileName'
-  | 'blocks___image___file___contentType'
-  | 'blocks___image___title'
-  | 'blocks___image___description'
-  | 'blocks___image___node_locale'
-  | 'blocks___image___sys___type'
-  | 'blocks___image___sys___revision'
-  | 'blocks___image___fixed___base64'
-  | 'blocks___image___fixed___tracedSVG'
-  | 'blocks___image___fixed___aspectRatio'
-  | 'blocks___image___fixed___width'
-  | 'blocks___image___fixed___height'
-  | 'blocks___image___fixed___src'
-  | 'blocks___image___fixed___srcSet'
-  | 'blocks___image___fixed___srcWebp'
-  | 'blocks___image___fixed___srcSetWebp'
-  | 'blocks___image___resolutions___base64'
-  | 'blocks___image___resolutions___tracedSVG'
-  | 'blocks___image___resolutions___aspectRatio'
-  | 'blocks___image___resolutions___width'
-  | 'blocks___image___resolutions___height'
-  | 'blocks___image___resolutions___src'
-  | 'blocks___image___resolutions___srcSet'
-  | 'blocks___image___resolutions___srcWebp'
-  | 'blocks___image___resolutions___srcSetWebp'
-  | 'blocks___image___fluid___base64'
-  | 'blocks___image___fluid___tracedSVG'
-  | 'blocks___image___fluid___aspectRatio'
-  | 'blocks___image___fluid___src'
-  | 'blocks___image___fluid___srcSet'
-  | 'blocks___image___fluid___srcWebp'
-  | 'blocks___image___fluid___srcSetWebp'
-  | 'blocks___image___fluid___sizes'
-  | 'blocks___image___sizes___base64'
-  | 'blocks___image___sizes___tracedSVG'
-  | 'blocks___image___sizes___aspectRatio'
-  | 'blocks___image___sizes___src'
-  | 'blocks___image___sizes___srcSet'
-  | 'blocks___image___sizes___srcWebp'
-  | 'blocks___image___sizes___srcSetWebp'
-  | 'blocks___image___sizes___sizes'
-  | 'blocks___image___resize___base64'
-  | 'blocks___image___resize___tracedSVG'
-  | 'blocks___image___resize___src'
-  | 'blocks___image___resize___width'
-  | 'blocks___image___resize___height'
-  | 'blocks___image___resize___aspectRatio'
   | 'blocks___page'
   | 'blocks___page___id'
   | 'blocks___page___parent___id'
@@ -1984,6 +1918,72 @@ export type ContentfulPageFieldsEnum =
   | 'blocks___sys___type'
   | 'blocks___sys___revision'
   | 'blocks___node_locale'
+  | 'blocks___image___id'
+  | 'blocks___image___parent___id'
+  | 'blocks___image___parent___children'
+  | 'blocks___image___children'
+  | 'blocks___image___children___id'
+  | 'blocks___image___children___children'
+  | 'blocks___image___internal___content'
+  | 'blocks___image___internal___contentDigest'
+  | 'blocks___image___internal___description'
+  | 'blocks___image___internal___fieldOwners'
+  | 'blocks___image___internal___ignoreType'
+  | 'blocks___image___internal___mediaType'
+  | 'blocks___image___internal___owner'
+  | 'blocks___image___internal___type'
+  | 'blocks___image___contentful_id'
+  | 'blocks___image___spaceId'
+  | 'blocks___image___createdAt'
+  | 'blocks___image___updatedAt'
+  | 'blocks___image___file___url'
+  | 'blocks___image___file___fileName'
+  | 'blocks___image___file___contentType'
+  | 'blocks___image___title'
+  | 'blocks___image___description'
+  | 'blocks___image___node_locale'
+  | 'blocks___image___sys___type'
+  | 'blocks___image___sys___revision'
+  | 'blocks___image___fixed___base64'
+  | 'blocks___image___fixed___tracedSVG'
+  | 'blocks___image___fixed___aspectRatio'
+  | 'blocks___image___fixed___width'
+  | 'blocks___image___fixed___height'
+  | 'blocks___image___fixed___src'
+  | 'blocks___image___fixed___srcSet'
+  | 'blocks___image___fixed___srcWebp'
+  | 'blocks___image___fixed___srcSetWebp'
+  | 'blocks___image___resolutions___base64'
+  | 'blocks___image___resolutions___tracedSVG'
+  | 'blocks___image___resolutions___aspectRatio'
+  | 'blocks___image___resolutions___width'
+  | 'blocks___image___resolutions___height'
+  | 'blocks___image___resolutions___src'
+  | 'blocks___image___resolutions___srcSet'
+  | 'blocks___image___resolutions___srcWebp'
+  | 'blocks___image___resolutions___srcSetWebp'
+  | 'blocks___image___fluid___base64'
+  | 'blocks___image___fluid___tracedSVG'
+  | 'blocks___image___fluid___aspectRatio'
+  | 'blocks___image___fluid___src'
+  | 'blocks___image___fluid___srcSet'
+  | 'blocks___image___fluid___srcWebp'
+  | 'blocks___image___fluid___srcSetWebp'
+  | 'blocks___image___fluid___sizes'
+  | 'blocks___image___sizes___base64'
+  | 'blocks___image___sizes___tracedSVG'
+  | 'blocks___image___sizes___aspectRatio'
+  | 'blocks___image___sizes___src'
+  | 'blocks___image___sizes___srcSet'
+  | 'blocks___image___sizes___srcWebp'
+  | 'blocks___image___sizes___srcSetWebp'
+  | 'blocks___image___sizes___sizes'
+  | 'blocks___image___resize___base64'
+  | 'blocks___image___resize___tracedSVG'
+  | 'blocks___image___resize___src'
+  | 'blocks___image___resize___width'
+  | 'blocks___image___resize___height'
+  | 'blocks___image___resize___aspectRatio'
   | 'blocks___childrenContentfulBlockMrkTextNode'
   | 'blocks___childrenContentfulBlockMrkTextNode___id'
   | 'blocks___childrenContentfulBlockMrkTextNode___parent___id'
@@ -3957,12 +3957,12 @@ export type Query = {
   allMarkdownRemark: MarkdownRemarkConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  contentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
-  allContentfulBlockMrkTextNode: ContentfulBlockMrkTextNodeConnection;
   contentfulAsset?: Maybe<ContentfulAsset>;
   allContentfulAsset: ContentfulAssetConnection;
   contentfulPage?: Maybe<ContentfulPage>;
   allContentfulPage: ContentfulPageConnection;
+  contentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNode>;
+  allContentfulBlockMrkTextNode: ContentfulBlockMrkTextNodeConnection;
   contentfulBlock?: Maybe<ContentfulBlock>;
   allContentfulBlock: ContentfulBlockConnection;
   contentfulContentType?: Maybe<ContentfulContentType>;
@@ -4172,26 +4172,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryContentfulBlockMrkTextNodeArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  mrk?: Maybe<StringQueryOperatorInput>;
-  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
-  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
-  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
-};
-
-
-export type QueryAllContentfulBlockMrkTextNodeArgs = {
-  filter?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
-  sort?: Maybe<ContentfulBlockMrkTextNodeSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryContentfulAssetArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4250,6 +4230,26 @@ export type QueryAllContentfulPageArgs = {
 };
 
 
+export type QueryContentfulBlockMrkTextNodeArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  mrk?: Maybe<StringQueryOperatorInput>;
+  sys?: Maybe<ContentfulBlockMrkTextNodeSysFilterInput>;
+  childrenMarkdownRemark?: Maybe<MarkdownRemarkFilterListInput>;
+  childMarkdownRemark?: Maybe<MarkdownRemarkFilterInput>;
+};
+
+
+export type QueryAllContentfulBlockMrkTextNodeArgs = {
+  filter?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
+  sort?: Maybe<ContentfulBlockMrkTextNodeSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryContentfulBlockArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -4257,7 +4257,6 @@ export type QueryContentfulBlockArgs = {
   internal?: Maybe<InternalFilterInput>;
   title?: Maybe<StringQueryOperatorInput>;
   className?: Maybe<StringQueryOperatorInput>;
-  image?: Maybe<ContentfulAssetFilterInput>;
   page?: Maybe<ContentfulPageFilterListInput>;
   mrk?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
   spaceId?: Maybe<StringQueryOperatorInput>;
@@ -4266,6 +4265,7 @@ export type QueryContentfulBlockArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   sys?: Maybe<ContentfulBlockSysFilterInput>;
   node_locale?: Maybe<StringQueryOperatorInput>;
+  image?: Maybe<ContentfulAssetFilterInput>;
   childrenContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterListInput>;
   childContentfulBlockMrkTextNode?: Maybe<ContentfulBlockMrkTextNodeFilterInput>;
 };

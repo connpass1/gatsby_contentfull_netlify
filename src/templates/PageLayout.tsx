@@ -17,10 +17,10 @@ class PageLayout extends React.Component {
         
        {/* {JSON.stringify( page)} */}
         {<Title>{page.title}</Title>}
-        {page.blocks.map((block: any, key: any) =>block.image?.fluid && <div key={key}> 
-        <Img          
-      fluid={block.image.fluid}
-        />  
+        {page.blocks.map((block: any, key: any) => <div key={key}> 
+          {block.image?.fluid && <Img
+            fluid={block.image.fluid}
+          />}
           <MarkDown dangerouslySetInnerHTML={{
                 __html:block.mrk.childMarkdownRemark.html,
         }}
