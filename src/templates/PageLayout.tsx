@@ -4,7 +4,8 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/Layout'
-import { MarkDown, TagList, Title } from '../components/Styled'
+import {  TagList, Title } from '../components/Styled'
+import { MarkDown } from '../components/MarkDown'
 class PageLayout extends React.Component {
   render() {
     const page = get(this.props, 'data.contentfulPage')
@@ -12,19 +13,18 @@ class PageLayout extends React.Component {
     // const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     return (
       <Layout seo={ {title:title, description:description, lang:lang  }}>
-        <Helmet title={ page.title} />
+        <Helmet title={page.title} />
+        
        {/* {JSON.stringify( page)} */}
-        <Title>{page.title}</Title>
-        {page.blocks.map((block: any, key: any) => <div key={key}>  
-         <p>{key}</p> 
+        {<Title>{page.title}</Title>}
+        {page.blocks.map((block: any, key: any) => <div key={key}> 
+        <Img          
+      fluid={block.image.fluid}
+        />  
           <MarkDown dangerouslySetInnerHTML={{
                 __html:block.mrk.childMarkdownRemark.html,
         }}
           />
-          <div style={{width:"50%"}}>
-      <Img          
-      fluid={block.image.fluid}
-        /> </div>
           </div>
           )}
             <TagList>{page.tags.map((tag: string, key: string | number ) => <li key={key}>{tag }</li>)}</TagList>         

@@ -1,12 +1,18 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { Global, css } from '@emotion/react'
-const linkColor="#37abc8"
-
-export const GlobalCSS=()=><Global
-  styles={css`
- 
-
+import {
+  Global,
+  css
+} from '@emotion/react'
+export const linkColor = "#00aad4ff"
+export const greyColor = "#333333"
+export const greyColorOpacity = "#33333399"
+export const primaryColor = "#008066ff"
+const background = "#888";
+const textColor = "#373F49";
+export const GlobalCSS = () => < Global
+styles = {
+  css `
 @font-face {
   font-family: "Avenir";
   font-weight: 400;
@@ -19,9 +25,12 @@ body {
   font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
-  color: #373F49;
-  background: #eee;
+  color:${textColor};
+  background: ${background};
   margin: 0;
+  -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 img {
@@ -42,9 +51,10 @@ a{
   height: 100%; 
 }
 
-`}
+`
+}
 />
-export const Navigation=styled.nav`
+export const Navigation = styled.nav `
 display: flex;
 justify-content: center;
 list-style: none;
@@ -57,24 +67,26 @@ font-weight:bold;
 ul {
     display: inline-flex;
     align-items: center;
-    margin: 0 1em;    
+    margin: 0 1em; 
+    
     li{
         display: inline-flex;
         align-items: center;
         margin: 0 1em;
-    }
+    } 
 }
 `
-export const Title = styled.h1`
+export const Title = styled.h1 `
 color:#000000a5;
 margin: 0 1rem;
 font-size: 2.25em;
 font-weight:bold;
 text-align:left;
-padding:0 1rem;
-border-bottom: 1px solid currentColor;
+padding:0;
+@media (min-width: 960px) {padding:0 1rem; }
+
 `
-export const ArticleList=styled.ul`
+export const ArticleList = styled.ul `
   margin: 0;
   padding: 0;
   list-style: none;
@@ -91,14 +103,9 @@ export const ArticleList=styled.ul`
    }
 }
 `
- 
-export const MarkDown = styled.div`
-padding: 2rem;
-img{  width:140px;
-float:right}
-table{width:100%}
-`
-export const TagList = styled.ul`
+
+
+export const TagList = styled.ul `
 border-top:1px solid currentColor;
 border-bottom:1px solid currentColor;
 padding:  2rem;
